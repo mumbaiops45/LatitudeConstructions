@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import {
   Disclosure,
@@ -32,6 +32,7 @@ export default function Navbar() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="flex h-20 items-center justify-between">
 
+             
               <div className="flex items-center gap-3">
                 <img
                   src="/logo.jpeg"
@@ -41,7 +42,7 @@ export default function Navbar() {
               </div>
 
              
-              <div className="hidden md:flex items-center gap-2 lg:gap-4">
+              <div className="hidden items-center gap-2 md:flex lg:gap-4">
 
                 {navigation.map((item) => (
                   <a
@@ -49,23 +50,24 @@ export default function Navbar() {
                     href={item.href}
                     className={classNames(
                       item.current
-                        ? "bg-white text-black shadow-lg"
-                        : "text-gray-300 hover:bg-white/10 hover:text-white",
-                      "rounded-full px-4 py-2 lg:px-5 text-sm font-medium transition-all duration-300 hover:scale-105"
+                        ? "bg-emerald-500/15 text-emerald-300 border border-emerald-500/30"
+                        : "text-zinc-300 hover:text-emerald-300 hover:bg-white/5",
+                      "rounded-full px-5 py-2 text-sm font-medium transition-all duration-300 hover:scale-105 backdrop-blur"
                     )}
                   >
                     {item.name}
                   </a>
                 ))}
 
-                <button className="ml-2 rounded-full bg-gradient-to-r from-pink-500 via-orange-500 to-yellow-500 px-6 py-2.5 text-sm font-semibold text-white shadow-[0_8px_30px_rgba(0,0,0,0.25)] transition-all duration-300 hover:scale-105 hover:shadow-orange-500/40">
+                
+                <button className="ml-2 rounded-full bg-gradient-to-r from-emerald-500 via-green-500 to-lime-400 px-6 py-2.5 text-sm font-semibold text-black shadow-lg shadow-emerald-500/20 transition-all duration-300 hover:scale-105 hover:shadow-emerald-500/40">
                   Get Started
                 </button>
-
               </div>
 
+             
               <div className="md:hidden">
-                <DisclosureButton className="inline-flex items-center justify-center rounded-xl p-2 text-gray-300 transition hover:bg-white/10 hover:text-white focus:outline-none">
+                <DisclosureButton className="rounded-xl p-2 text-zinc-300 transition hover:bg-white/10 hover:text-white">
                   {open ? (
                     <XMarkIcon className="h-6 w-6" />
                   ) : (
@@ -73,11 +75,10 @@ export default function Navbar() {
                   )}
                 </DisclosureButton>
               </div>
-
             </div>
           </div>
 
-   
+         
           <DisclosurePanel className="border-t border-white/10 bg-black/90 backdrop-blur-2xl md:hidden">
             <div className="space-y-3 px-4 py-5">
 
@@ -87,16 +88,17 @@ export default function Navbar() {
                   href={item.href}
                   className={classNames(
                     item.current
-                      ? "bg-white text-black"
-                      : "text-gray-300 hover:bg-white/10 hover:text-white",
-                    "block rounded-xl px-4 py-3 text-base font-medium transition-all duration-300"
+                      ? "bg-emerald-500/15 text-emerald-300"
+                      : "text-zinc-300 hover:bg-white/5 hover:text-emerald-300",
+                    "block rounded-xl px-4 py-3 text-base font-medium transition"
                   )}
                 >
                   {item.name}
                 </a>
               ))}
 
-              <button className="mt-4 w-full rounded-xl bg-gradient-to-r from-pink-500 via-orange-500 to-yellow-500 py-3 font-semibold text-white shadow-lg transition-all duration-300 hover:scale-[1.02]">
+           
+              <button className="mt-4 w-full rounded-xl bg-gradient-to-r from-emerald-500 via-green-500 to-lime-400 py-3 font-semibold text-black shadow-lg transition hover:scale-[1.02]">
                 Get Started
               </button>
 
