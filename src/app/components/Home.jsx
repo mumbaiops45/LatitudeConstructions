@@ -2,8 +2,7 @@
 "use client"
 import React, { useEffect, useRef, useState, useCallback } from 'react'
 import {
-    motion, useScroll, useTransform, useInView,
-    useMotionValue, useSpring, AnimatePresence,
+    motion, useScroll, useTransform, useInView, AnimatePresence,
 } from 'framer-motion'
 import { services, projects, whyUs, reviews, brands, faqs } from '../data/data'
 
@@ -231,7 +230,7 @@ export default function Home() {
             <style>{globalCSS}</style>
             <div className="grain" />
 
-            <section
+            {/* <section
                 ref={heroRef}
                 className="relative flex min-h-screen items-center overflow-hidden px-16 py-25"
             >
@@ -332,7 +331,7 @@ export default function Home() {
                                 {text.includes("Your") ? (
                                     <>
                                         We Build{" "}
-                                        <span className="bg-gradient-to-r from-green-400 via-emerald-400 to-yellow-400 bg-clip-text text-transparent animate-pulse">
+                                        <span className="bg-gradient-to-r from-green-400 via-green-400 to-green-400 bg-clip-text text-transparent ">
                                             Your
                                         </span>
                                     </>
@@ -392,7 +391,158 @@ export default function Home() {
 
                     </motion.div>
                 </motion.div>
-            </section>
+            </section> */}
+
+            <section
+  ref={heroRef}
+  className="relative flex min-h-screen items-center overflow-hidden px-6 lg:px-16 py-20"
+>
+
+  {/* ================= BACKGROUND ================= */}
+  <motion.div style={{ y: heroY, scale: heroScale }} className="absolute inset-0">
+
+    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_36%,#0c2210_0%,#050505_65%)]" />
+
+    <motion.div
+      animate={{ backgroundPosition: ["0px 0px", "100px 100px"] }}
+      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+      className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(#22c55a66_1px,transparent_1px),linear-gradient(90deg,#22c55a66_1px,transparent_1px)] bg-[size:100px_100px]"
+    />
+
+    {/* Floating blobs */}
+    <motion.div
+      animate={{ y: [0, -30, 0], x: [0, 20, 0] }}
+      transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+      className="absolute left-[6%] top-[10%] h-[500px] w-[500px] rounded-full bg-green-600/10 blur-3xl"
+    />
+
+    <motion.div
+      animate={{ y: [0, 40, 0], x: [0, -30, 0] }}
+      transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+      className="absolute bottom-[10%] right-[8%] h-[420px] w-[420px] rounded-full bg-emerald-700/10 blur-3xl"
+    />
+
+    <motion.div
+      animate={{ scale: [1, 1.1, 1] }}
+      transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+      className="absolute right-[30%] top-[35%] h-[280px] w-[280px] rounded-full bg-yellow-500/5 blur-3xl"
+    />
+
+    {/* top line */}
+    <motion.div
+      animate={{ opacity: [0.4, 1, 0.4] }}
+      transition={{ duration: 4, repeat: Infinity }}
+      className="absolute left-0 right-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-green-500 to-yellow-400"
+    />
+  </motion.div>
+
+  {/* ================= CONTENT WRAPPER ================= */}
+  <div className="relative z-10 flex w-full flex-col-reverse lg:flex-row items-center justify-between gap-12">
+
+    {/* ================= LEFT TEXT ================= */}
+    <motion.div
+      style={{ opacity: heroOpacity }}
+      className="w-full lg:max-w-2xl text-left"
+    >
+
+      {/* Badge */}
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="mb-10 flex items-center gap-4 text-xs uppercase tracking-[0.3em] text-green-400/80"
+      >
+        <div className="h-px w-14 bg-gradient-to-r from-green-500 to-transparent" />
+
+        <span className="whitespace-nowrap">
+          Farmhouse & Eco-Friendly Construction · Bangalore & Hosur
+        </span>
+
+        <div className="h-px w-14 bg-gradient-to-l from-green-500 to-transparent" />
+      </motion.div>
+
+      {/* Heading */}
+      <motion.h1 className="mb-8 text-[clamp(3rem,7vw,4.8rem)] font-light leading-[1.05] text-white">
+        <motion.span initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} className="block">
+          Brick by Brick,
+        </motion.span>
+
+        <motion.span initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="block">
+          We Build{" "}
+          <span className="bg-gradient-to-r from-green-400 via-emerald-400 to-green-500 bg-clip-text text-transparent">
+            Your
+          </span>
+        </motion.span>
+
+        <motion.span initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="block">
+          Dream House
+        </motion.span>
+      </motion.h1>
+
+      {/* Paragraph */}
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.6 }}
+        className="mb-10 max-w-lg text-zinc-400"
+      >
+        Premium farmhouse construction & villa projects across Bangalore & Hosur.
+        From <span className="text-green-400 font-medium">₹2,100/sqft</span>.
+        Quality that speaks, timelines that deliver.
+      </motion.p>
+
+      {/* Buttons */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.8 }}
+        className="flex flex-wrap gap-4"
+      >
+        <a
+          href="tel:8951639116"
+          className="rounded-full bg-gradient-to-r from-green-600 to-emerald-500 px-8 py-4 text-white shadow-lg shadow-green-500/20 transition hover:scale-105"
+        >
+          📞 Call Now — Free Consultation
+        </a>
+
+        <a
+          href="https://wa.me/918951639116"
+          className="rounded-full border border-green-500/40 bg-green-500/10 px-8 py-4 text-green-300 backdrop-blur transition hover:scale-105"
+        >
+          💬 WhatsApp Us
+        </a>
+
+        <a
+          href="/projects"
+          className="rounded-full border border-white/10 px-8 py-4 text-zinc-300 transition hover:text-white hover:scale-105"
+        >
+          View Our Work
+        </a>
+      </motion.div>
+    </motion.div>
+
+    
+    <motion.div
+  initial={{ opacity: 0, scale: 0.8 }}
+  animate={{ opacity: 1, scale: 1 }}
+  transition={{ duration: 1 }}
+  whileHover={{ scale: 1.02 }}   
+  className="relative w-full max-w-md lg:max-w-lg"
+>
+
+ 
+  <div className="absolute inset-0 -z-10 blur-3xl bg-green-500/20 rounded-full scale-110" />
+
+ 
+  <img
+    src="/brickhome.jpg"
+    alt="Hero"
+    className="w-full h-auto rounded-3xl shadow-2xl border border-white/10"
+  />
+
+</motion.div>
+
+  </div>
+</section>
 
 
 
