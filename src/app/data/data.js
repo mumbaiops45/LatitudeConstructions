@@ -1,11 +1,11 @@
 
 export const services = [
-    { icon: '🌿', title: 'Farmhouse Construction', desc: 'Specialised builders in Bangalore, Hosur, Jowlagiri & Denkanikottai. Eco-friendly materials, rainwater harvesting, solar integration and green building practices.' },
-    { icon: '🏛️', title: 'Residential Turnkey', desc: 'Complete home solutions from design to handover — bespoke homes built to your vision with zero compromise. Single point of contact, zero hassle.' },
-    { icon: '🏗️', title: 'Commercial Projects', desc: 'Modern, efficient commercial spaces designed around brand identity, functionality, and energy optimization. Offices, retail, warehouses.' },
-    { icon: '🛋️', title: 'Interior Design', desc: 'Custom interiors with smart space utilization and eco-conscious materials. Aesthetics with sustainability. 3D visualization before execution.' },
-    { icon: '🔨', title: 'Renovation & Remodeling', desc: 'Modernizing existing structures with minimal disruption, waste reduction focus, and maximum value addition. Kitchen, bathroom, full-home renovation.' },
-    { icon: '📐', title: 'Layout Development', desc: 'Planned residential communities with smart infrastructure, amenities, and utilities. RS Avenue (8 acres), MM Enclave (5 acres) and more.' },
+    { icon: '🌿', title: 'Farmhouse Construction', desc: 'Specialised builders in Bangalore, Hosur, Jowlagiri & Denkanikottai. Eco-friendly materials, rainwater harvesting, solar integration and green building practices.' , image: "/villa.jpg"},
+    { icon: '🏛️', title: 'Residential Turnkey', desc: 'Complete home solutions from design to handover — bespoke homes built to your vision with zero compromise. Single point of contact, zero hassle.', image: "/villa.jpg" },
+    { icon: '🏗️', title: 'Commercial Projects', desc: 'Modern, efficient commercial spaces designed around brand identity, functionality, and energy optimization. Offices, retail, warehouses.' , image: "/villa.jpg" },
+    { icon: '🛋️', title: 'Interior Design', desc: 'Custom interiors with smart space utilization and eco-conscious materials. Aesthetics with sustainability. 3D visualization before execution.' , image: "/villa.jpg"},
+    { icon: '🔨', title: 'Renovation & Remodeling', desc: 'Modernizing existing structures with minimal disruption, waste reduction focus, and maximum value addition. Kitchen, bathroom, full-home renovation.' , image: "/villa.jpg" },
+    { icon: '📐', title: 'Layout Development', desc: 'Planned residential communities with smart infrastructure, amenities, and utilities. RS Avenue (8 acres), MM Enclave (5 acres) and more.' , image: "/villa.jpg"},
 ]
 
 

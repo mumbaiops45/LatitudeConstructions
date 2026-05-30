@@ -7,6 +7,7 @@ import {
 import { services, projects, whyUs, reviews, brands, faqs } from '../data/data'
 
 
+
 const C = {
 
     bg: '#080d08',
@@ -222,374 +223,7 @@ export default function Home() {
     return (
         <div style={{ background: C.bg, color: C.text1, overflowX: 'hidden' }}>
             <style>{globalCSS}</style>
-            <div className="grain" />
-
-            {/* 
-            <section
-                ref={heroRef}
-                className="relative flex min-h-screen items-center overflow-hidden px-6 lg:px-16 py-20"
-            >
-                <motion.div style={{ y: heroY, scale: heroScale }} className="absolute inset-0">
-
-                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_36%,#0c2210_0%,#050505_65%)]" />
-
-                    <motion.div
-                        animate={{ backgroundPosition: ["0px 0px", "100px 100px"] }}
-                        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                        className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(#22c55a66_1px,transparent_1px),linear-gradient(90deg,#22c55a66_1px,transparent_1px)] bg-[size:100px_100px]"
-                    />
-
-
-                    <motion.div
-                        animate={{ y: [0, -30, 0], x: [0, 20, 0] }}
-                        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                        className="absolute left-[6%] top-[10%] h-[500px] w-[500px] rounded-full bg-green-600/10 blur-3xl"
-                    />
-
-                    <motion.div
-                        animate={{ y: [0, 40, 0], x: [0, -30, 0] }}
-                        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-                        className="absolute bottom-[10%] right-[8%] h-[420px] w-[420px] rounded-full bg-emerald-700/10 blur-3xl"
-                    />
-
-                    <motion.div
-                        animate={{ scale: [1, 1.1, 1] }}
-                        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-                        className="absolute right-[30%] top-[35%] h-[280px] w-[280px] rounded-full bg-yellow-500/5 blur-3xl"
-                    />
-
-
-                    <motion.div
-                        animate={{ opacity: [0.4, 1, 0.4] }}
-                        transition={{ duration: 4, repeat: Infinity }}
-                        className="absolute left-0 right-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-green-500 to-yellow-400"
-                    />
-                </motion.div>
-
-
-                <div className="relative z-10 flex w-full flex-col-reverse lg:flex-row items-center justify-between gap-12">
-
-
-                    <motion.div
-                        style={{ opacity: heroOpacity }}
-                        className="w-full lg:max-w-2xl text-left"
-                    >
-
-
-                        <motion.div
-                            initial={{ opacity: 0, y: -20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            className="mb-10 flex items-center gap-4 text-xs uppercase tracking-[0.3em] text-green-400/80"
-                        >
-                            <div className="h-px w-14 bg-gradient-to-r from-green-500 to-transparent" />
-
-                            <span className="whitespace-nowrap">
-                                Farmhouse & Eco-Friendly Construction · Bangalore & Hosur
-                            </span>
-
-                            <div className="h-px w-14 bg-gradient-to-l from-green-500 to-transparent" />
-                        </motion.div>
-
-
-                        <motion.h1 className="mb-8 text-[clamp(3rem,7vw,4.8rem)] font-light leading-[1.05] text-white">
-                            <motion.span initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} className="block">
-                                Brick by Brick,
-                            </motion.span>
-
-                            <motion.span initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="block">
-                                We Build{" "}
-                                <span className="bg-gradient-to-r from-green-400 via-emerald-400 to-green-500 bg-clip-text text-transparent">
-                                    Your
-                                </span>
-                            </motion.span>
-
-                            <motion.span initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="block">
-                                Dream House
-                            </motion.span>
-                        </motion.h1>
-
-
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.6 }}
-                            className="mb-10 max-w-lg text-zinc-400"
-                        >
-                            Premium farmhouse construction & villa projects across Bangalore & Hosur.
-                            From <span className="text-green-400 font-medium">₹2,100/sqft</span>.
-                            Quality that speaks, timelines that deliver.
-                        </motion.p>
-
-
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.8 }}
-                            className="flex flex-wrap gap-4"
-                        >
-                            <a
-                                href="tel:8951639116"
-                                className="rounded-full bg-gradient-to-r from-green-600 to-emerald-500 px-8 py-4 text-white shadow-lg shadow-green-500/20 transition hover:scale-105"
-                            >
-                                📞 Call Now — Free Consultation
-                            </a>
-
-                            <a
-                                href="https://wa.me/918951639116"
-                                className="rounded-full border border-green-500/40 bg-green-500/10 px-8 py-4 text-green-300 backdrop-blur transition hover:scale-105"
-                            >
-                                💬 WhatsApp Us
-                            </a>
-
-                            <a
-                                href="/projects"
-                                className="rounded-full border border-white/10 px-8 py-4 text-zinc-300 transition hover:text-white hover:scale-105"
-                            >
-                                View Our Work
-                            </a>
-                        </motion.div>
-                    </motion.div>
-
-
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 1 }}
-                        whileHover={{ scale: 1.02 }}
-                        className="relative w-full max-w-md lg:max-w-lg"
-                    >
-
-
-                        <div className="absolute inset-0 -z-10 blur-3xl bg-green-500/20 rounded-full scale-110" />
-
-
-                        <img
-                            src="/brickhome.jpg"
-                            alt="Hero"
-                            className="w-full h-auto rounded-3xl shadow-2xl border border-white/10"
-                        />
-
-                    </motion.div>
-
-                </div>
-            </section> */}
-
-            <section
-                ref={heroRef}
-                className="relative overflow-hidden bg-[#050505] min-h-screen flex items-center"
-            >
-                {/* Background */}
-                <motion.div
-                    style={{ y: heroY, scale: heroScale }}
-                    className="absolute inset-0"
-                >
-                    {/* Main Gradient */}
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#16351d_0%,#050505_45%)]" />
-
-                    {/* Grid Pattern */}
-                    <motion.div
-                        animate={{
-                            backgroundPosition: ["0px 0px", "120px 120px"],
-                        }}
-                        transition={{
-                            duration: 20,
-                            repeat: Infinity,
-                            ease: "linear",
-                        }}
-                        className="absolute inset-0 opacity-[0.05]
-      bg-[linear-gradient(#22c55a55_1px,transparent_1px),linear-gradient(90deg,#22c55a55_1px,transparent_1px)]
-      bg-[size:120px_120px]"
-                    />
-
-                    {/* Glow Effects */}
-                    <div className="absolute left-[-10%] top-[10%] h-[500px] w-[500px] rounded-full bg-green-500/10 blur-3xl" />
-
-                    <div className="absolute right-[-10%] bottom-[5%] h-[450px] w-[450px] rounded-full bg-emerald-500/10 blur-3xl" />
-
-                    <div className="absolute top-[35%] left-[45%] h-[250px] w-[250px] rounded-full bg-yellow-500/10 blur-3xl" />
-
-                    {/* Top Accent Line */}
-                    <div className="absolute top-0 left-0 h-[2px] w-full bg-gradient-to-r from-transparent via-green-500 to-transparent" />
-                </motion.div>
-
-                {/* Main Container */}
-                <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-24 lg:px-12">
-                    <div className="grid items-center gap-16 lg:grid-cols-2">
-
-                        {/* LEFT CONTENT */}
-                        <motion.div
-                            style={{ opacity: heroOpacity }}
-                            className="text-center lg:text-left"
-                        >
-                            {/* Tag */}
-                            <motion.div
-                                initial={{ opacity: 0, y: -20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                className="mb-8 inline-flex items-center gap-4 rounded-full border border-green-500/20 bg-white/5 px-5 py-2 backdrop-blur-md"
-                            >
-                                <div className="h-2 w-2 rounded-full bg-green-400 animate-pulse" />
-
-                                <span className="text-[11px] uppercase tracking-[0.25em] text-green-300">
-                                    Farmhouse & Eco-Friendly Construction
-                                </span>
-                            </motion.div>
-
-                            {/* Heading */}
-                            <motion.h1
-                                className="max-w-3xl text-5xl font-light leading-tight text-white sm:text-6xl lg:text-7xl"
-                            >
-                                <motion.span
-                                    initial={{ opacity: 0, y: 30 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    className="block"
-                                >
-                                    Brick by Brick,
-                                </motion.span>
-
-                                <motion.span
-                                    initial={{ opacity: 0, y: 30 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.1 }}
-                                    className="block"
-                                >
-                                    We Build{" "}
-                                    <span className="bg-gradient-to-r from-green-400 via-emerald-300 to-yellow-300 bg-clip-text text-transparent">
-                                        Your Dream
-                                    </span>
-                                </motion.span>
-
-                                <motion.span
-                                    initial={{ opacity: 0, y: 30 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.2 }}
-                                    className="block"
-                                >
-                                    Farmhouse
-                                </motion.span>
-                            </motion.h1>
-
-                            {/* Description */}
-                            <motion.p
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.5 }}
-                                className="mx-auto mt-8 max-w-xl text-base leading-8 text-zinc-400 lg:mx-0 lg:text-lg"
-                            >
-                                Premium farmhouse construction and eco-luxury villa projects
-                                across Bangalore & Hosur. Built with timeless craftsmanship,
-                                transparent pricing, and guaranteed delivery timelines.
-                            </motion.p>
-
-                            {/* Stats */}
-                            <motion.div
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                transition={{ delay: 0.7 }}
-                                className="mt-10 flex flex-wrap items-center justify-center gap-8 lg:justify-start"
-                            >
-                                <div>
-                                    <h3 className="text-3xl font-semibold text-white">12+</h3>
-                                    <p className="text-sm text-zinc-500">Years Experience</p>
-                                </div>
-
-                                <div className="hidden h-10 w-px bg-white/10 sm:block" />
-
-                                <div>
-                                    <h3 className="text-3xl font-semibold text-white">150+</h3>
-                                    <p className="text-sm text-zinc-500">Projects Delivered</p>
-                                </div>
-
-                                <div className="hidden h-10 w-px bg-white/10 sm:block" />
-
-                                <div>
-                                    <h3 className="text-3xl font-semibold text-white">₹2100</h3>
-                                    <p className="text-sm text-zinc-500">Starting / Sq.ft</p>
-                                </div>
-                            </motion.div>
-
-                            <motion.div
-
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.9 }}
-                                className='mt-12 flex flex-col items-stretch gap-4 sm:flex-row sm:flex-wrap sm:items-center lg:justify-start'
-                            >
-                                <a
-                                    href="tel:8951639116"
-                                    className='group relative inline-flex items-center h-10 items-center justify-center gap-3 overflow-hidden rounded-full bg-gradient-to-r from-green-500 via-emerald-400 to-green-500 px-8 text-sm font-semibold tracking-wide text-black shadow-[0_10px_40px_rgba(34,197,94,0.25)] transition-all duration-300 hover:scale-[1.03]
-            hover:shadow-[0_15px_60px_rgba(34,197,94,0.45)]'
-                                >
-                                    <span className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-white/10" />
-
-                                    <span className='relative text-lg'>📞 </span>
-                                    <span className='relative'>Free Consultation</span>
-                                </a>
-
-                                <a
-                                    href="https://wa.me/918951639116"
-                                    className='group inline-flex h-10 items-center justify-center gap-3 rounded-full border border-green-500/20 bg-white/5 px-8 text-sm font-medium tracking-wide text-green-300 backdrop-blur-xl transition-all duration-300 hover:border-green-400/50 hover:bg-green-500/10 hover:text-white hover:shadow-[0_8px_30px_rgba(34, 197, 94, 0.15)]'
-                                >
-                                    <span className="text-lg">💬</span>
-                                    <span>WhatsApp Us</span>
-                                </a>
-
-                                <a
-                                    href='/projects'
-                                    className='group inline-flex h-10 items-center gap-3 rounded-full border border-white/10 bg-white/[0.03] px-8 text-sm fonot-medium tracking-wide text-zinc-300 backdrop-blur-xl transition-all duration-300 hover:border-white/20 hover:bg-white/[0.06] hover:text-white'
-                                >
-                                    <span>View Projects</span>
-                                    <span className="transition-transform duration-300 group-hover:translate-x-1">
-                                        →
-                                    </span>
-
-                                </a>
-
-                            </motion.div>
-
-                        </motion.div>
-
-                        {/* RIGHT IMAGE */}
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 1 }}
-                            className="relative mx-auto "
-                        >
-                            {/* Glow */}
-                            <div className="absolute inset-0 rounded-[40px] bg-gradient-to-r from-green-500/20 to-yellow-500/10 blur-3xl" />
-
-                            {/* Glass Card */}
-                            <div
-                                className="relative overflow-hidden rounded-[32px]
-          border border-white/10
-          bg-white/5
-          shadow-2xl
-          backdrop-blur-xl"
-                            >
-                                <img
-                                    src="/brickhome.jpg"
-                                    alt="Luxury Farmhouse"
-                                    className="h-[400px] w-[480px] object-cover"
-                                />
-
-                                {/* Overlay Gradient */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-
-                                {/* Floating Badge */}
-                                <div className="absolute bottom-6 left-6 rounded-2xl border border-white/10 bg-black/40 px-5 py-3 backdrop-blur-lg">
-                                    <p className="text-xs uppercase tracking-[0.2em] text-green-300">
-                                        Premium Villa Construction
-                                    </p>
-
-                                    <h4 className="mt-1 text-lg font-semibold text-white">
-                                        Bangalore & Hosur
-                                    </h4>
-                                </div>
-                            </div>
-                        </motion.div>
-                    </div>
-                </div>
-            </section>
+            <div className="grain" /> 
 
             <section style={{ position: 'relative', padding: '40px 0', overflow: 'hidden' }}>
                 <div style={{
@@ -613,61 +247,118 @@ export default function Home() {
                 </motion.div>
             </section>
 
+          {/* <Whywe/> */}
 
+            {/* <section className="max-w-[1200px] mx-auto px-6 py-16 overflow-hidden">
 
-
-            <section style={{ padding: '120px 24px', maxWidth: 1200, margin: '0 auto' }}>
-                <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} variants={stagger} style={{ marginBottom: 68 }}>
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-80px" }}
+                    variants={stagger}
+                    className="mb-16"
+                >
                     <Label>What We Do</Label>
-                    <motion.h2 variants={fadeUp} custom={0.1}
-                        style={{ fontSize: 'clamp(2.2rem,5vw,4.2rem)', lineHeight: 1.1, color: C.text1, marginBottom: 18 }}>
-                        Complete Construction<br /><span style={gradText}>Solutions</span>
+
+                    <motion.h2
+                        variants={fadeUp}
+                        custom={0.1}
+                        className="text-[clamp(2.2rem,5vw,3rem)] leading-[1.1] text-white mb-5 font-semibold"
+                    >
+                        Complete Construction
+                        <br />
+                        <span className="bg-gradient-to-r from-green-400 via-emerald-500 to-lime-400 bg-clip-text text-transparent">
+                            Solutions
+                        </span>
                     </motion.h2>
-                    <motion.p variants={fadeUp} custom={0.2}
-                        style={{ color: C.text3, fontSize: 15, maxWidth: 500, lineHeight: 1.8 }}>
-                        From eco-friendly farmhouses to premium residential villas — we handle every aspect of your construction journey.
+
+                    <motion.p
+                        variants={fadeUp}
+                        custom={0.2}
+                        className="text-zinc-400 text-[15px] max-w-[500px] leading-8"
+                    >
+                        From eco-friendly farmhouses to premium residential villas —
+                        we handle every aspect of your construction journey.
                     </motion.p>
                 </motion.div>
 
-                <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-60px' }} variants={stagger}
-                    style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px,1fr))', gap: 20 }}>
-                    {services.map(s => (
-                        <motion.div key={s.title} variants={cardAnim}
-                            whileHover={{ y: -9, transition: { duration: 0.3 } }}
-                            className="cg"
-                            style={{ background: C.card, border: `1px solid ${C.border}`, borderRadius: 22, padding: '30px 28px 26px', cursor: 'pointer' }}
+
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-60px" }}
+                    variants={stagger}
+                    className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-5"
+                >
+                    {services.map((s) => (
+                        <motion.div
+                            key={s.title}
+                            variants={cardAnim}
+                            whileHover={{ y: -10 }}
+                            transition={{ duration: 0.35 }}
+                            className=" group relative overflow-hidden rounded-[24px] border border-white/10 bg-[#111111] p-7 cursor-pointer transition-all duration-500 hover:border-emerald-400/40  hover:shadow-[0_0_40px_rgba(16,185,129,0.12)]"
                         >
 
-                            <div style={{
-                                width: 52, height: 52, borderRadius: 14, marginBottom: 22,
-                                background: `linear-gradient(135deg, ${C.greenDim}, transparent)`,
-                                border: `1px solid ${C.border}`,
-                                display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 26,
-                            }}>{s.icon}</div>
-                            <h3 style={{ color: C.text1, fontSize: 21, marginBottom: 10 }}>{s.title}</h3>
-                            <p style={{ color: C.text3, fontSize: 13, lineHeight: 1.8 }}>{s.desc}</p>
-                            <div style={{ marginTop: 22, display: 'flex', alignItems: 'center', gap: 8, color: `${C.green}77`, fontSize: 11, letterSpacing: '0.24em', textTransform: 'uppercase' }}>
+
+                            <span
+                                className=" absolute left-0 top-0 h-[2px] w-0 bg-gradient-to-r from-transparent via-emerald-400 to-transparent transition-all duration-700 group-hover:w-full" />
+
+                            <span
+                                className=" absolute right-0 bottom-0 h-[2px] w-0 bg-gradient-to-l from-transparent via-emerald-400 to-transparent transition-all duration-700 group-hover:w-full "
+                            />
+
+                            <div
+                                className={` absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500
+            bg-[radial-gradient(circle_at_top,rgba(16,185,129,0.12),transparent_70%)]
+          `}
+                            />
+
+                            <div
+                                className=" relative z-10 w-[52px] h-[52px] rounded-[14px] mb-6 border border-white/10 bg-gradient-to-br from-emerald-500/20 to-transparent flex  items-center  justify-center  text-[26px]"
+                            >
+                                {s.icon}
+                            </div>
+
+                            <h3 className="relative z-10 text-white text-[21px] mb-3 font-semibold">
+                                {s.title}
+                            </h3>
+
+                            <p className="relative z-10 text-zinc-400 text-[13px] leading-8">
+                                {s.desc}
+                            </p>
+
+
+                            <div
+                                className="relative z-10  mt-6  flex  items-center  gap-2  text-[11px] tracking-[0.24em] uppercase text-emerald-400/70 "
+                            >
                                 Learn more
-                                <motion.span animate={{ x: [0, 5, 0] }} transition={{ repeat: Infinity, duration: 2.3 }} style={{ fontSize: 13, color: C.green }}>→</motion.span>
+
+                                <motion.span
+                                    animate={{ x: [0, 5, 0] }}
+                                    transition={{ repeat: Infinity, duration: 2.3 }}
+                                    className="text-[13px] text-emerald-400"
+                                >
+                                    →
+                                </motion.span>
                             </div>
                         </motion.div>
                     ))}
                 </motion.div>
 
-                <Reveal delay={0.3} style={{ marginTop: 52, textAlign: 'center' }}>
-                    <a href="/services" style={{
-                        display: 'inline-flex', alignItems: 'center', gap: 10,
-                        color: C.text3, fontSize: 13, border: `1px solid ${C.border}`,
-                        padding: '12px 30px', borderRadius: 50, textDecoration: 'none',
-                    }}>
-                        Explore All Services <span style={{ color: C.green }}>→</span>
+
+                <Reveal delay={0.3} className="mt-14 text-center">
+                    <a
+                        href="/services"
+                        className="inline-flex items-center gap-3 rounded-full border border-white/10 px-8 py-3 text-[13px] text-zinc-300 transition-all  duration-300 hover:border-emerald-400/40 hover:bg-emerald-500/5 hover:text-white" >
+                        Explore All Services
+                        <span className="text-emerald-400">→</span>
                     </a>
                 </Reveal>
-            </section>
+            </section> */}
 
 
 
-            <section className="relative overflow-hidden bg-[#0b120c] py-8 px-6">
+            {/* <section className="relative overflow-hidden bg-[#0b120c] py-8 px-6">
 
                 <div className="absolute left-1/2 top-0 h-[450px] w-[450px] -translate-x-1/2 rounded-full bg-green-500/10 blur-[140px]" />
 
@@ -705,7 +396,7 @@ export default function Home() {
                                     ease: [0.22, 1, 0.36, 1],
                                 }}
                                 whileHover={{ y: -8 }}
-                                className="group relative overflow-hidden rounded-[30px] border border-white/10 bg-white/5 shadow-[0_10px_40px_rgba(0,0,0,0.35)] backdrop-blur-xl"
+                                className={"group relative overflow-hidden rounded-[30px] border border-white/10 bg-white/5 shadow-[0_10px_40px_rgba(0,0,0,0.35)] backdrop-blur-xl"}
                             >
 
                                 <div className="relative h-[420px] overflow-hidden">
@@ -753,13 +444,13 @@ export default function Home() {
                         </a>
                     </div>
                 </div>
-            </section>
+            </section> */}
 
 
 
 
 
-            <section className="px-16 py-8">
+            {/* <section className="px-16 py-8">
                 <motion.div
                     initial="hidden"
                     whileInView="visible"
@@ -949,11 +640,11 @@ export default function Home() {
                         </a>
                     </Reveal>
                 </div>
-            </section>
+            </section> */}
 
 
 
-
+{/* 
             <section className="relative overflow-hidden px-16 py-8">
                 <div className="pointer-events-none absolute inset-0 -z-10">
                     <div className="absolute left-0 top-0 h-72 w-72 rounded-full bg-emerald-500/10 blur-3xl" />
@@ -1099,12 +790,12 @@ export default function Home() {
                         ))}
                     </div>
                 </div>
-            </section>
+            </section> */}
 
 
 
 
-            <section style={{ padding: '16px 24px', maxWidth: 760, margin: '0 auto' }}>
+            {/* <section style={{ padding: '16px 24px', maxWidth: 760, margin: '0 auto' }}>
                 <Reveal style={{ marginBottom: 52 }}>
                     <Label>FAQ</Label>
                     <h2 style={{ fontSize: 'clamp(2.2rem,5vw,4.2rem)', color: C.text1, lineHeight: 1.1 }}>
@@ -1112,10 +803,10 @@ export default function Home() {
                     </h2>
                 </Reveal>
                 {faqs.map((f, i) => <FaqItem key={f.q} q={f.q} a={f.a} i={i} />)}
-            </section>
+            </section> */}
 
 
-            <section style={{ position: 'relative', padding: '16px 24px', overflow: 'hidden' }}>
+            {/* <section style={{ position: 'relative', padding: '16px 24px', overflow: 'hidden' }}>
                 <div style={{ position: 'absolute', inset: 0, background: `radial-gradient(ellipse 88% 68% at 50% 50%, #0c2210 0%, ${C.bg} 72%)` }} />
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 1, background: `linear-gradient(to right, transparent, ${C.green}66, ${C.gold}55, ${C.green}66, transparent)` }} />
                 <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 1, background: `linear-gradient(to right, transparent, ${C.green}33, transparent)` }} />
@@ -1142,8 +833,8 @@ export default function Home() {
                     </motion.p>
                     <motion.div variants={fadeUp} custom={0.2}
                         style={{ display: 'flex', flexWrap: 'wrap', gap: 16, justifyContent: 'center' }}>
-                        <p href="tel:8951639116">
-                            <a href="tel:8951639116" className="gpulse" style={{
+                        <p href="tel:+918951639116">
+                            <a href="tel:+918951639116" className="gpulse" style={{
                                 display: 'inline-flex', alignItems: 'center', gap: 10,
                                 background: `linear-gradient(135deg, ${C.greenDark}, ${C.green}, ${C.greenLight})`,
                                 color: C.textInvert, padding: '17px 38px',
@@ -1168,7 +859,9 @@ export default function Home() {
                         </p>
                     </motion.div>
                 </motion.div>
-            </section>
+            </section> */}
+
+
         </div>
     )
 }
