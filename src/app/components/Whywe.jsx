@@ -20,7 +20,7 @@ export default function Whywe() {
     });
 
     return (
-        <section ref={ref} className="relative bg-[#070707] text-white py-24">
+        <section ref={ref} className="relative bg-gray-100 text-black py-24">
             <div className="max-w-[1200px] mx-auto px-6 mb-20">
                 <p className="text-xs tracking-[0.3em] uppercase text-emerald-400">
                     What We Do
@@ -33,7 +33,7 @@ export default function Whywe() {
                     </span>
                 </h2>
 
-                <p className="text-zinc-400 mt-6 max-w-xl leading-7">
+                <p className="text-black mt-6 max-w-xl leading-7">
                     From eco-friendly farmhouses to premium villas — we handle every aspect of construction.
                 </p>
             </div>

@@ -1,11 +1,11 @@
 
 export const services = [
-    { icon: '🌿', title: 'Farmhouse Construction', desc: 'Specialised builders in Bangalore, Hosur, Jowlagiri & Denkanikottai. Eco-friendly materials, rainwater harvesting, solar integration and green building practices.' , image: "/villa.jpg"},
-    { icon: '🏛️', title: 'Residential Turnkey', desc: 'Complete home solutions from design to handover — bespoke homes built to your vision with zero compromise. Single point of contact, zero hassle.', image: "/villa.jpg" },
-    { icon: '🏗️', title: 'Commercial Projects', desc: 'Modern, efficient commercial spaces designed around brand identity, functionality, and energy optimization. Offices, retail, warehouses.' , image: "/villa.jpg" },
-    { icon: '🛋️', title: 'Interior Design', desc: 'Custom interiors with smart space utilization and eco-conscious materials. Aesthetics with sustainability. 3D visualization before execution.' , image: "/villa.jpg"},
-    { icon: '🔨', title: 'Renovation & Remodeling', desc: 'Modernizing existing structures with minimal disruption, waste reduction focus, and maximum value addition. Kitchen, bathroom, full-home renovation.' , image: "/villa.jpg" },
-    { icon: '📐', title: 'Layout Development', desc: 'Planned residential communities with smart infrastructure, amenities, and utilities. RS Avenue (8 acres), MM Enclave (5 acres) and more.' , image: "/villa.jpg"},
+    { icon: '🌿', title: 'Farmhouse Construction', desc: 'Specialised builders in Bangalore, Hosur, Jowlagiri & Denkanikottai. Eco-friendly materials, rainwater harvesting, solar integration and green building practices.' , image: "/formhouse.png"},
+    { icon: '🏛️', title: 'Residential Turnkey', desc: 'Complete home solutions from design to handover — bespoke homes built to your vision with zero compromise. Single point of contact, zero hassle.', image: "/turnkey.webp" },
+    { icon: '🏗️', title: 'Commercial Projects', desc: 'Modern, efficient commercial spaces designed around brand identity, functionality, and energy optimization. Offices, retail, warehouses.' , image: "/CommercialProjects.webp" },
+    { icon: '🛋️', title: 'Interior Design', desc: 'Custom interiors with smart space utilization and eco-conscious materials. Aesthetics with sustainability. 3D visualization before execution.' , image: "/architects-interior.webp"},
+    { icon: '🔨', title: 'Renovation & Remodeling', desc: 'Modernizing existing structures with minimal disruption, waste reduction focus, and maximum value addition. Kitchen, bathroom, full-home renovation.' , image: "/Renovation.webp" },
+    { icon: '📐', title: 'Layout Development', desc: 'Planned residential communities with smart infrastructure, amenities, and utilities. RS Avenue (8 acres), MM Enclave (5 acres) and more.' , image: "/layoutdevelopment.webp"},
 ]
 
 
@@ -25,12 +25,6 @@ export const whyUs = [
     { icon: '💎', title: 'Transparent Pricing', desc: 'Milestone-based payments, zero hidden costs, complete financial clarity from day one.' },
 ]
 
-export const reviews = [
-    { stars: 5, text: 'Latitude Constructions built our farmhouse in Jowlagiri exactly as we envisioned. Eco-friendly materials, timely updates, exceptional quality. Not a single rupee was hidden — 100% transparent.', name: 'Mr. Rajesh', proj: 'Farmhouse, Denkanikottai' },
-    { stars: 5, text: 'The team delivered our villa in Hosur on time and the quality is outstanding. Weekly photo updates kept us informed even from Bangalore. The milestone payment system gave us full confidence throughout.', name: 'Mr. Anshuman', proj: 'Villa, Hosa Road, Bangalore' },
-    { stars: 5, text: 'What impressed us most was the use of branded materials — UltraTech cement, Asian Paints, Jaquar fittings. No substitutes. Construction quality exactly as promised in the agreement.', name: 'Mr. Sudhakar', proj: 'Residential Home, Bangalore' },
-    { stars: 5, text: 'We selected the premium eco-friendly package with mud interlocking bricks. The natural ventilation design keeps our farmhouse cool without AC. They truly understand sustainable construction.', name: 'Mr. Mathew', proj: 'Eco-Friendly Farmhouse, Hosur' },
-]
 
 export const brands = ['UltraTech Cement', 'RAMCO', 'JSW Cement', 'Meenakshi TMT', 'Polycab', 'V.Guard', 'Asian Paints', 'Parryware', 'Cera', 'Jaquar', 'Supreme', 'Finolex', 'Anchor', 'Sara Windows', 'Venus Doors', 'Havells']
 
@@ -44,3 +38,32 @@ export const faqs = [
     { q: 'Do you provide BBMP / panchayat plan approval assistance?', a: 'Yes. Our Premium Package includes full 6-stage architectural service, and we assist with BBMP, BMRDA, and Gram Panchayat building plan approval, khata transfer, and EC verification. Our team has extensive experience with local authorities across Hosur and Bangalore outskirts.' },
     { q: 'Can I see completed projects before deciding?', a: 'Absolutely. We have 40+ completed projects since 2014 across Bangalore, Hosur, Jowlagiri, and Denkanikottai. You can view our portfolio or call us to arrange a site visit to an ongoing or completed project near your location.' },
 ]
+
+
+
+export const reviews = [
+  {
+    name: "Mr. Rajesh",
+    role: "Farmhouse - Denkanikottai",
+    text:
+      "Latitude Construction built our farmhouse exactly as envisioned. Eco-friendly materials, transparent pricing, and timely updates throughout.",
+  },
+  {
+    name: "Mr. Anshuman",
+    role: "Villa - Hosa Road, Bangalore",
+    text:
+      "Delivered our villa on time with outstanding quality. Weekly updates and milestone payments gave complete confidence.",
+  },
+  {
+    name: "Mr. Sudhakar",
+    role: "Residential Home - Bangalore",
+    text:
+      "Used branded materials exactly as promised. Site supervision was excellent and quality exceeded expectations.",
+  },
+  {
+    name: "Mr. Mathew",
+    role: "Eco-Friendly Farmhouse - Hosur",
+    text:
+      "Natural ventilation and mud interlock design made the house extremely comfortable. Truly sustainable construction.",
+  },
+];

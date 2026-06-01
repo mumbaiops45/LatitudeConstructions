@@ -9,12 +9,12 @@ import {
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const navigation = [
-  { name: "Home", href: "#", current: true },
-  { name: "About", href: "#", current: false },
-  { name: "Services", href: "#", current: false },
-  { name: "Packages", href: "#", current: false },
-  { name: "Portfolio", href: "#", current: false },
-  { name: "Contact", href: "#", current: false },
+  { name: "Home", href: "/", current: true },
+  { name: "About", href: "/about-us", current: false },
+  { name: "Services", href: "/services", current: false },
+  { name: "Packages", href: "/Packages", current: false },
+  { name: "Portfolio", href: "/Portfolio", current: false },
+  { name: "Contact", href: "/contact", current: false },
 ];
 
 function classNames(...classes) {
@@ -25,7 +25,7 @@ export default function Navbar() {
   return (
     <Disclosure
       as="nav"
-      className="fixed top-0 left-0 z-50 w-full border-b border-white/10 bg-black/40 backdrop-blur-2xl"
+      className="fixed top-0 left-0 z-50 w-full border-b border-white/10 bg-black backdrop-blur-2xl"
     >
       {({ open }) => (
         <>
@@ -50,7 +50,7 @@ export default function Navbar() {
                     href={item.href}
                     className={classNames(
                       item.current
-                        ? "bg-emerald-500/15 text-emerald-300 border border-emerald-500/30"
+                        ? "bg-white/5 text-emerald-300 border border-emerald-500/30"
                         : "text-zinc-300 hover:text-emerald-300 hover:bg-white/5",
                       "rounded-full px-5 py-2 text-sm font-medium transition-all duration-300 hover:scale-105 backdrop-blur"
                     )}
@@ -60,7 +60,7 @@ export default function Navbar() {
                 ))}
 
                 
-                <button className="ml-2 rounded-full bg-gradient-to-r from-emerald-500 via-green-500 to-lime-400 px-6 py-2.5 text-sm font-semibold text-black shadow-lg shadow-emerald-500/20 transition-all duration-300 hover:scale-105 hover:shadow-emerald-500/40">
+                <button className="ml-2 rounded-full bg-gradient-to-r from-emerald-500 via-green-500 to-green-400 px-6 py-2.5 text-sm font-semibold text-black shadow-lg shadow-emerald-500/20 transition-all duration-300 hover:scale-105 hover:shadow-emerald-500/40">
                   Get Started
                 </button>
               </div>
@@ -98,7 +98,7 @@ export default function Navbar() {
               ))}
 
            
-              <button className="mt-4 w-full rounded-xl bg-gradient-to-r from-emerald-500 via-green-500 to-lime-400 py-3 font-semibold text-black shadow-lg transition hover:scale-[1.02]">
+              <button className="mt-4 w-full rounded-xl bg-gradient-to-r from-emerald-500 via-green-500 to-green-400 py-3 font-semibold text-black shadow-lg transition hover:scale-[1.02]">
                 Get Started
               </button>
 

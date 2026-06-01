@@ -4,8 +4,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 
-
-
 const CARRIAGES = [
     { id: "badge", delay: 0.0 },
     { id: "heading", delay: 0.35 },
@@ -62,7 +60,7 @@ export default function Hero() {
     return (
         <section
             ref={ref}
-            className="relative min-h-screen bg-[#070707] overflow-hidden flex items-center"
+            className="relative min-h-screen overflow-hidden flex items-center"
         >
             <style>{`
         
@@ -80,8 +78,8 @@ export default function Hero() {
       `}</style>
 
 
-            <motion.div style={{ y: yBg }} className="absolute inset-0">
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_20%_40%,#0f2a1a_0%,#070707_65%)]" />
+            <motion.div  className="absolute inset-0">
+                <div className="absolute inset-0 bg-gray-100" />
 
                 <div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(#22c55a22_1px,transparent_1px),linear-gradient(90deg,#22c55a22_1px,transparent_1px)] bg-[size:80px_80px]" />
 
@@ -127,14 +125,12 @@ export default function Hero() {
                             animate={started ? "visible" : "hidden"}
                             custom={CARRIAGES[1].delay}
                         >
-                            <h1 className="font-display text-[48px] sm:text-[58px] lg:text-[68px] xl:text-[80px] font-light leading-[1.05] tracking-[-0.01em] text-white">
+                            <h1 className="font-display text-[48px] sm:text-[58px] lg:text-[68px] xl:text-[80px] font-light leading-[1.05] tracking-[-0.01em] text-black">
                                 Crafting
                                 <br />
                                 Architectural
                                 <br />
-                                <span className="italic text-transparent bg-clip-text"
-                                    style={{ backgroundImage: "linear-gradient(135deg, #4ade80 0%, #86efac 60%, #d1fae5 100%)" }}
-                                >
+                                <span className="italic text-green-400  ">
                                     Masterpieces
                                 </span>
                             </h1>
@@ -147,7 +143,7 @@ export default function Hero() {
                             animate={started ? "visible" : "hidden"}
                             custom={CARRIAGES[2].delay}
                         >
-                            <p className="max-w-md text-zinc-400 leading-7 sm:leading-8 text-sm sm:text-base lg:text-[17px] font-light border-l border-green-500/20 pl-4">
+                            <p className="max-w-md text-black rounded-2xl bg-gray-300 leading-7 sm:leading-8 text-sm sm:text-base lg:text-[17px] font-light border-l border-green-500/20 pl-4">
                                 We design premium eco-luxury farmhouses across Bangalore &amp; Hosur with
                                 architectural precision, natural harmony, and timeless craftsmanship.
                             </p>
@@ -174,7 +170,7 @@ export default function Hero() {
                                         whileHover={{ y: -4 }}
                                         className="group cursor-default"
                                     >
-                                        <p className="font-display text-3xl sm:text-4xl font-light text-white group-hover:text-green-300 transition-colors duration-300">
+                                        <p className="font-display text-3xl sm:text-4xl font-light text-green-400 group-hover:text-green-300 transition-colors duration-300">
                                             {s.value}
                                         </p>
                                         <p className="text-zinc-500 text-xs sm:text-sm mt-0.5 tracking-wide">{s.label}</p>
@@ -195,21 +191,17 @@ export default function Hero() {
                                 <motion.a
                                     whileHover={{ scale: 1.03, backgroundClip: "#4ade80" }}
                                     whileTap={{ scale: 0.97 }}
-                                    className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-3.5 rounded-full bg-white text-black text-xs sm:text-sm font-semibold tracking-wide transition-all duration-300 whitespace-nowrap"
+                                    className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-3.5 rounded-full bg-black text-white text-xs sm:text-sm font-semibold tracking-wide transition-all duration-300 whitespace-nowrap"
                                 >
                                     Free Consulation
                                     <span className="text-base">→</span>
                                 </motion.a>
 
                                 <motion.a
-                                    whileHover={{
-                                        scale: 1.03,
-                                        borderColor: "rgba(74,222,128,0.5)",
-                                        color: "#000000",
-                                    }}
+                                    
                                     whileTap={{ scale: 0.97 }}
                                     href="/projects"
-                                    className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-3.5 rounded-full border bg-white border-white/10 text-black text-xs sm:text-sm font-medium tracking-wide transition-all duration-300 whitespace-nowrap"
+                                    className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-3.5 rounded-full border bg-black border-white/10 text-white text-xs sm:text-sm font-medium tracking-wide transition-all duration-300 hover: text-gray-100 whitespace-nowrap"
                                 >
                                     View Work
                                     <span className="text-base">→</span>
@@ -270,13 +262,12 @@ export default function Hero() {
                             initial={{ opacity: 0, scale: 0.8, y: 10 }}
                             animate={started ? { opacity: 1, scale: 1, y: 0 } : {}}
                             transition={{ delay: 2.2, duration: 0.6, ease: "backOut" }}
-                            className="absolute -left-4 sm:-left-8 top-6 sm:top-10 bg-[#0d1a0d] border border-white/[0.07] rounded-xl sm:rounded-2xl px-4 sm:px-5 py-3 sm:py-4 shadow-2xl backdrop-blur-sm"
+                            className="absolute -left-4 sm:-left-8 top-6 sm:top-10 bg-[#e8f1e8] border border-white/[0.07] rounded-xl sm:rounded-2xl px-4 sm:px-5 py-3 sm:py-4 shadow-2xl backdrop-blur-sm"
                         >
                             <div className="flex items-center gap-2 mb-1">
-                                <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-                                <span className="font-body text-[9px] sm:text-[10px] text-zinc-500 tracking-[0.2em] uppercase">Active Projects</span>
+                                <span className="font-body text-[9px] sm:text-[10px] text-black tracking-[0.2em] uppercase">Active Projects</span>
                             </div>
-                            <p className="font-display text-2xl sm:text-3xl text-white font-light">24</p>
+                            <p className="font-display text-2xl sm:text-3xl text-black font-light">24</p>
                         </motion.div>
                     </motion.div>
 
