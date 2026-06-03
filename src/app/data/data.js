@@ -255,3 +255,118 @@ export const service = [
     icon: "compass",
   },
 ];
+
+
+ export  const packages = [
+        {
+            title: "Solid Blocks",
+            price: "₹2,100",
+            desc: "Standard solid concrete blocks construction",
+        },
+        {
+            title: "Mud Interlocking",
+            price: "₹2,200",
+            desc: "Eco friendly compressed earth interlocking blocks",
+        },
+        {
+            title: "Red Bricks",
+            price: "₹2,300",
+            desc: "Traditional fired clay red brick construction",
+        },
+    ];
+
+//  export   const specifications = [
+//         ["Ceiling Height", "10 Feet"],
+//         ["Foundation Height", "2 Feet Above Ground"],
+//         ["Flooring", "Vitrified Tiles"],
+//         ["Electrical Wiring", "HIFI / Anchor"],
+//         ["Plumbing Pipes", "Supreme Pipes"],
+//         ["CP Fittings", "Parryware"],
+//         ["Windows", "UPVC 2 Track (4' × 3')"],
+//         ["Main Door Frame", "Honne Wood Frame"],
+//         ["Internal Door Frames", "Sal Wood Frame"],
+//         ["Bathroom Doors", "PVC Doors"],
+//         ["Kitchen Counter", "Granite Finish"],
+//         ["Water Tank", "1000L Double Layered PVC"],
+//         ["Interior Paint", "Asian Tractor Emulsion"],
+//         ["Exterior Paint", "Asian Paint"],
+//         ["Bay Windows", "1 No."],
+//         ["Agreement Advance", "₹25,000"],
+//     ];
+
+ export   const included = [
+        "2D floor plans and architectural layout",
+        "Site supervision throughout construction",
+        "Weekly photo progress updates",
+        "All named brand materials as specified",
+        "Milestone based payment schedule",
+        "Complete plumbing supply and drainage",
+        "Electrical wiring and switches",
+        "All internal and external plastering",
+        "Flooring as per package specification",
+        "Doors and windows as specified",
+        "Interior and exterior painting",
+        "Kitchen counter and CP fittings",
+        "Overhead water tank installation",
+    ];
+
+  export  const excluded = [
+        "Government approval fees",
+        "BBMP fees",
+        "Electricity connection charges",
+        "Compound wall and gate",
+        "Underground sump",
+        "Borewell drilling",
+        "Water tanker charges",
+        "Elevation stone cladding",
+        "Modular kitchen cabinets",
+        "Landscaping",
+        "Solar panels",
+        "Rainwater harvesting",
+        "Generator and inverter setup",
+    ];
+
+ export   const milestones = [
+        {
+            step: "01",
+            title: "Agreement Signing",
+            desc: "Project commencement and agreement signing",
+            percent: "20%",
+        },
+        {
+            step: "02",
+            title: "Foundation Complete",
+            desc: "Excavation, PCC, footing and plinth work",
+            percent: "15%",
+        },
+        {
+            step: "03",
+            title: "Before Lintel Level",
+            desc: "Columns and masonry completed",
+            percent: "15%",
+        },
+        {
+            step: "04",
+            title: "Before Roof Slab",
+            desc: "Structural framework completed",
+            percent: "15%",
+        },
+        {
+            step: "05",
+            title: "Internal Plastering",
+            desc: "Walls plastered and services embedded",
+            percent: "15%",
+        },
+        {
+            step: "06",
+            title: "Tile Laying Complete",
+            desc: "Flooring, bathrooms and kitchen counter",
+            percent: "10%",
+        },
+        {
+            step: "07",
+            title: "Final Handover",
+            desc: "Painting, fittings and key handover",
+            percent: "10%",
+        },
+    ];

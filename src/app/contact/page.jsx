@@ -1,0 +1,313 @@
+'use client'
+
+import React, { useEffect, useRef } from 'react'
+
+
+
+const Page = () => {
+    const parallaxRefs = useRef([])
+    parallaxRefs.current = []
+    const addParallax = (el) => { if (el && !parallaxRefs.current.includes(el)) parallaxRefs.current.push(el) }
+
+    useEffect(() => {
+        const io = new IntersectionObserver(
+            (entries) => entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target) } }),
+            { threshold: 0.15 }
+        )
+        document.querySelectorAll('.reveal, .underline-grow').forEach((el) => io.observe(el))
+
+        let ticking = false
+        const onScroll = () => {
+            if (ticking) return
+            ticking = true
+            requestAnimationFrame(() => {
+                const y = window.scrollY
+                parallaxRefs.current.forEach((l) => {
+                    const s = parseFloat(l.dataset.speed || '0.2')
+                    l.style.transform = `translate3d(0, ${y * s}px, 0)`
+                })
+                ticking = false
+            })
+        }
+        window.addEventListener('scroll', onScroll, { passive: true })
+        return () => { window.removeEventListener('scroll', onScroll); io.disconnect() }
+    }, [])
+
+    return (
+        <div className="font-['Manrope',sans-serif] text-gray-800 bg-gray-100 antialiased overflow-x-hidden">
+            <style>{`
+        ::selection{background:#15803d;color:#fff}
+        .grid-lines{background-image:linear-gradient(rgba(21,128,61,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(21,128,61,.06) 1px,transparent 1px);background-size:46px 46px}
+        @keyframes rise{from{opacity:0;transform:translateY(34px)}to{opacity:1;transform:translateY(0)}}
+        @keyframes glow{0%,100%{opacity:.4;transform:scale(1)}50%{opacity:.7;transform:scale(1.12)}}
+        @keyframes lineGrow{from{width:0}to{width:100%}}
+        @keyframes floaty{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-20px) rotate(5deg)}}
+        .reveal{opacity:0;transform:translateY(40px);transition:opacity .9s cubic-bezier(.16,.84,.44,1),transform .9s cubic-bezier(.16,.84,.44,1)}
+        .reveal.in{opacity:1;transform:none}
+        .hero-rise{animation:rise 1s cubic-bezier(.16,.84,.44,1) both}
+        .glow-orb{animation:glow 9s ease-in-out infinite}
+        .floaty{animation:floaty 11s ease-in-out infinite}
+        .underline-grow{position:relative}
+        .underline-grow::after{content:"";position:absolute;left:0;bottom:-10px;height:3px;width:0;background:linear-gradient(90deg,#15803d,#22c55e)}
+        .underline-grow.in::after{animation:lineGrow 1.1s .3s cubic-bezier(.16,.84,.44,1) forwards}
+        .btn-primary{position:relative;overflow:hidden;background:#15803d;color:#fff;transition:.4s cubic-bezier(.16,.84,.44,1);box-shadow:0 10px 24px -10px rgba(21,128,61,.5)}
+        .btn-primary::before{content:"";position:absolute;inset:0;transform:translateX(-101%);background:#166534;transition:transform .45s cubic-bezier(.16,.84,.44,1)}
+        .btn-primary:hover::before{transform:translateX(0)}
+        .btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 30px -10px rgba(21,128,61,.55)}
+        .btn-primary>span{position:relative;z-index:1}
+        .btn-outline{transition:.4s cubic-bezier(.16,.84,.44,1)}
+        .btn-outline:hover{background:#15803d;color:#fff;border-color:#15803d;transform:translateY(-2px);box-shadow:0 14px 28px -12px rgba(21,128,61,.45)}
+        .lift{transition:transform .5s cubic-bezier(.16,.84,.44,1),border-color .5s,box-shadow .5s}
+        .lift:hover{transform:translateY(-6px);border-color:rgba(21,128,61,.4);box-shadow:0 24px 50px -22px rgba(16,52,30,.35)}
+        .field{transition:.3s cubic-bezier(.16,.84,.44,1)}
+        .field:focus{outline:none;border-color:#15803d;background:#f0fdf4;box-shadow:0 0 0 4px rgba(21,128,61,.12)}
+        select.field{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='none' stroke='%2315803d' stroke-width='2'%3E%3Cpath d='M2 4l5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center}
+      `}</style>
+
+
+            <section className="relative min-h-[88vh] flex items-center overflow-hidden bg-gray-100">
+                <div ref={addParallax} data-speed="0.12" className="absolute inset-0 grid-lines opacity-80" />
+                <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-transparent to-gray-100" />
+                <div ref={addParallax} data-speed="0.26" className="glow-orb absolute -top-24 -right-16 w-[34rem] h-[34rem] rounded-full bg-green-500/15 blur-[120px]" />
+                <div ref={addParallax} data-speed="0.18" style={{ animationDelay: '-3s' }} className="glow-orb absolute bottom-0 left-[-8rem] w-[26rem] h-[26rem] rounded-full bg-emerald-400/15 blur-[120px]" />
+                <div ref={addParallax} data-speed="0.45" className="floaty absolute top-1/4 right-[12%] w-24 h-24 border-2 border-green-600/25 rotate-12 rounded-md" />
+                <div ref={addParallax} data-speed="0.6" style={{ animationDelay: '-5s' }} className="floaty absolute bottom-[20%] right-[26%] w-12 h-12 border-2 border-green-600/20 rounded-full" />
+
+                <div className="relative max-w-6xl mx-auto px-6 w-full">
+                    <div className="hero-rise inline-flex items-center gap-2 bg-green-700/10 text-green-800 px-4 py-1.5 rounded-full text-xs tracking-[0.25em] uppercase font-semibold mb-6" style={{ animationDelay: '.05s' }}>
+                        <span className="w-2 h-2 rounded-full bg-green-600" /> Latitude Constructions
+                    </div>
+                    <h1 className="hero-rise font-['Sora',sans-serif] text-gray-900 text-5xl sm:text-6xl md:text-7xl leading-[1.02] font-bold" style={{ animationDelay: '.2s' }}>
+                        Get In <span className="text-green-700">Touch</span>
+                    </h1>
+                    <p className="hero-rise mt-7 max-w-xl text-lg text-gray-600 leading-relaxed" style={{ animationDelay: '.4s' }}>
+                        Free consultation &amp; site visit — let&apos;s start building your dream from the ground up.
+                    </p>
+                    <div className="hero-rise mt-9 flex flex-wrap gap-4" style={{ animationDelay: '.55s' }}>
+                        <a href="#enquiry" className="btn-primary px-8 py-4 rounded-lg text-sm tracking-widest uppercase font-semibold"><span>Send an Enquiry</span></a>
+                        <a href="tel:+918951639116" className="btn-outline bg-white border-2 border-green-700 text-green-700 px-8 py-4 rounded-lg text-sm tracking-widest uppercase font-semibold">Call Now</a>
+                    </div>
+                </div>
+
+                <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-gray-400 text-xs tracking-[0.3em] uppercase flex flex-col items-center gap-2">
+                    Scroll
+                    <span className="w-px h-10 bg-gradient-to-b from-green-600 to-transparent" />
+                </div>
+            </section>
+
+
+            <section className="relative py-28 px-6 bg-gray-100 overflow-hidden">
+                <div className="pointer-events-none absolute inset-0">
+                    <div className="absolute -top-24 right-0 w-96 h-96 rounded-full bg-green-400/15 blur-[120px]" />
+                    <div className="absolute bottom-0 -left-24 w-96 h-96 rounded-full bg-emerald-500/10 blur-[120px]" />
+                </div>
+
+                <div className="relative max-w-6xl mx-auto">
+
+                    <div className="reveal ">
+                        <div className="flex items-center gap-3 mb-4">
+                            <div className="h-px w-10 bg-green-600" />
+                            <p className="text-green-700 tracking-[0.35em] text-xs uppercase font-semibold">Reach Us</p>
+                        </div>
+                        <h2 className="underline-grow font-['Sora',sans-serif] text-gray-900 text-4xl md:text-5xl font-bold inline-block">
+                            Contact <span className="text-green-600">Information</span>
+                        </h2>
+                        <p className="mt-4 max-w-xl text-gray-500">
+                            We'd love to hear about your project. Reach out through any of the channels below.
+                        </p>
+                    </div>
+
+
+                    {/* <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"> */}
+
+
+                        {/* <div className="reveal lift group relative overflow-hidden bg-white border border-gray-200 rounded-2xl p-7 shadow-sm transition-all duration-300 hover:border-green-300 hover:shadow-[0_20px_45px_-20px_rgba(22,163,74,0.45)]">
+                            <div className="absolute inset-0 bg-gradient-to-br from-green-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            <div className="relative">
+                                <div className="w-12 h-12 rounded-xl bg-green-700/10 text-green-700 flex items-center justify-center mb-4 transition-colors duration-300 group-hover:bg-green-600 group-hover:text-white">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
+                                </div>
+                                <p className="text-gray-400 text-xs tracking-[0.25em] uppercase mb-2">Phone</p>
+                                <p className="text-lg text-gray-900 font-medium">+91 89516 39116</p>
+                            </div>
+                        </div> */}
+
+
+                        {/* <div className="reveal lift group relative overflow-hidden bg-white border border-gray-200 rounded-2xl p-7 shadow-sm transition-all duration-300 hover:border-green-300 hover:shadow-[0_20px_45px_-20px_rgba(22,163,74,0.45)]">
+                            <div className="absolute inset-0 bg-gradient-to-br from-green-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            <div className="relative">
+                                <div className="w-12 h-12 rounded-xl bg-green-700/10 text-green-700 flex items-center justify-center mb-4 transition-colors duration-300 group-hover:bg-green-600 group-hover:text-white">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z" /></svg>
+                                </div>
+                                <p className="text-gray-400 text-xs tracking-[0.25em] uppercase mb-2">Service Areas</p>
+                                <p className="text-lg text-gray-900 font-medium leading-relaxed">Bangalore, Hosur, Jowlagiri, Denkanikottai &amp; surrounding regions</p>
+                            </div>
+                        </div> */}
+
+
+                       
+
+
+                        {/* <div className="reveal lift relative overflow-hidden bg-gradient-to-br from-green-600 to-green-800 text-white rounded-2xl p-7 flex flex-col justify-center gap-3 shadow-lg shadow-green-700/30" style={{ transitionDelay: '160ms' }}>
+                            <div className="pointer-events-none absolute -right-10 -top-10 w-40 h-40 rounded-full bg-white/10 blur-2xl" />
+                            <p className="relative text-xs uppercase tracking-[0.25em] text-green-100 mb-1">Get in touch</p>
+                            <a href="https://wa.me/918951639116" className="group relative flex items-center justify-between border border-white/25 rounded-xl px-5 py-3.5 hover:bg-white hover:text-green-700 transition-all duration-300">
+                                <span className="flex items-center gap-2 font-semibold text-sm tracking-wide">
+                                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" /></svg>
+                                    Chat on WhatsApp
+                                </span>
+                                <span className="group-hover:translate-x-1 transition-transform">→</span>
+                            </a>
+                            <a href="tel:+918951639116" className="group relative flex items-center justify-between border border-white/25 rounded-xl px-5 py-3.5 hover:bg-white hover:text-green-700 transition-all duration-300">
+                                <span className="flex items-center gap-2 font-semibold text-sm tracking-wide">
+                                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
+                                    Call Now
+                                </span>
+                                <span className="group-hover:translate-x-1 transition-transform">→</span>
+                            </a>
+                        </div> */}
+
+                    {/* </div> */}
+                </div>
+            </section>
+
+
+
+            <section id="enquiry" className="relative py-28 px-6 bg-white overflow-hidden">
+                <div ref={addParallax} data-speed="0.16" className="absolute top-0 right-0 w-[30rem] h-[30rem] rounded-full bg-green-500/10 blur-[130px]" />
+                <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-14 relative">
+
+
+                    <div className="reveal bg-gray-50 border border-gray-200 rounded-3xl p-8 md:p-10 shadow-sm">
+                        <h2 className="font-['Sora',sans-serif] text-gray-900 text-4xl font-bold mb-8">Send Us an <span className="text-green-700">Enquiry</span></h2>
+                        <div className="space-y-5">
+                            <div>
+                                <label className="block text-xs tracking-[0.2em] uppercase text-gray-500 font-semibold mb-2">Full Name *</label>
+                                <input type="text" className="field w-full bg-white border border-gray-300 rounded-xl px-4 py-3.5 text-gray-900 placeholder:text-gray-400" placeholder="Your name" />
+                            </div>
+                            <div className="grid sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label className="block text-xs tracking-[0.2em] uppercase text-gray-500 font-semibold mb-2">Phone Number *</label>
+                                    <input type="tel" className="field w-full bg-white border border-gray-300 rounded-xl px-4 py-3.5 text-gray-900 placeholder:text-gray-400" placeholder="+91" />
+                                </div>
+                                <div>
+                                    <label className="block text-xs tracking-[0.2em] uppercase text-gray-500 font-semibold mb-2">Email Address</label>
+                                    <input type="email" className="field w-full bg-white border border-gray-300 rounded-xl px-4 py-3.5 text-gray-900 placeholder:text-gray-400" placeholder="you@email.com" />
+                                </div>
+                            </div>
+                            <div>
+                                <label className="block text-xs tracking-[0.2em] uppercase text-gray-500 font-semibold mb-2">Service Interested In *</label>
+                                <select className="field w-full bg-white border border-gray-300 rounded-xl px-4 py-3.5 text-gray-900">
+                                    <option value="">Select a service…</option>
+                                    <option>Eco-Friendly Construction</option>
+                                    <option>Residential Turnkey Project</option>
+                                    <option>Commercial Construction</option>
+                                    <option>Interior Design &amp; Execution</option>
+                                    <option>Renovation &amp; Development</option>
+                                    <option>Architecture &amp; Approvals</option>
+                                    <option>General Enquiry</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label className="block text-xs tracking-[0.2em] uppercase text-gray-500 font-semibold mb-2">Project Location / Area *</label>
+                                <input type="text" className="field w-full bg-white border border-gray-300 rounded-xl px-4 py-3.5 text-gray-900 placeholder:text-gray-400" placeholder="City / locality" />
+                            </div>
+                            <div>
+                                <label className="block text-xs tracking-[0.2em] uppercase text-gray-500 font-semibold mb-2">Budget Range</label>
+                                <select className="field w-full bg-white border border-gray-300 rounded-xl px-4 py-3.5 text-gray-900">
+                                    <option value="">Select your budget range…</option>
+                                    <option>Below ₹30 Lakhs</option>
+                                    <option>₹30 Lakhs – ₹50 Lakhs</option>
+                                    <option>₹50 Lakhs – ₹1 Crore</option>
+                                    <option>Above ₹1 Crore</option>
+                                    <option>Not Decided Yet</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label className="block text-xs tracking-[0.2em] uppercase text-gray-500 font-semibold mb-2">Message / Requirements</label>
+                                <textarea rows="4" className="field w-full bg-white border border-gray-300 rounded-xl px-4 py-3.5 text-gray-900 placeholder:text-gray-400 resize-none" placeholder="Tell us about your project — plot size, number of floors, special requirements, timeline, etc." />
+                            </div>
+                            <button className="btn-primary w-full py-4 rounded-xl text-sm tracking-[0.2em] uppercase font-semibold mt-2"><span>Send Enquiry</span></button>
+                            <p className="text-sm text-gray-500 leading-relaxed pt-2">After submitting, we&apos;ll get back to you within <strong className="text-gray-900">24 hours.</strong> For urgent queries, call or WhatsApp directly on <strong className="text-green-700">+91 89516 39116.</strong></p>
+                        </div>
+                    </div>
+
+
+                    <div className="flex flex-col gap-6">
+                        <div className="reveal">
+                            <p className="text-green-700 tracking-[0.35em] text-xs uppercase font-semibold mb-3">Our Office</p>
+                            <h2 className="font-['Sora',sans-serif] text-gray-900 text-4xl md:text-5xl font-bold mb-4">Visit Our Office</h2>
+                            <p className="text-gray-600 text-lg leading-relaxed">Come visit us at our Hosur office — we&apos;d love to discuss your project in person.</p>
+                        </div>
+
+                        <div className="reveal lift bg-gray-50 border border-gray-200 rounded-3xl p-8 shadow-sm" style={{ transitionDelay: '80ms' }}>
+                            <h3 className="font-['Sora',sans-serif] text-2xl font-semibold text-green-700 mb-4">Office — Hosur</h3>
+                            <p className="text-gray-800 leading-relaxed mb-5">No.75/1B, Shivasakthi Nagar, ESI Ring Road, Hosur — 635109, Tamil Nadu, India</p>
+                            <div className="space-y-2 text-gray-600">
+                                <p><span className="text-green-700 font-semibold">Hours:</span> Mon–Sat, 9 AM – 6 PM</p>
+                                <p><span className="text-green-700 font-semibold">Phone:</span> +91 89516 39116</p>
+                                <p><span className="text-green-700 font-semibold">Email:</span> latitudeconstructions080@gmail.com</p>
+                            </div>
+                        </div>
+
+                        <div className="reveal lift bg-gray-50 border border-gray-200 rounded-3xl p-8 relative overflow-hidden shadow-sm" style={{ transitionDelay: '160ms' }}>
+                            <div className="grid-lines absolute inset-0 opacity-70" />
+                            <div className="relative">
+                                <h4 className="font-['Sora',sans-serif] text-xl font-semibold text-gray-900 mb-3">Find Us on Google Maps</h4>
+                                <p className="text-gray-600 leading-relaxed mb-6">Search &quot;Latitude Construction Hosur&quot; on Google Maps or call us for precise directions.</p>
+                                <a href="https://www.google.com/maps/search/Latitude+Construction+Hosur" className="btn-outline inline-block bg-white border-2 border-green-700 text-green-700 px-6 py-3 rounded-xl text-sm tracking-widest uppercase font-semibold">Get Directions — Hosur Office</a>
+                            </div>
+                        </div>
+
+                         {/* <div className="reveal lift bg-gray-50 border border-gray-200 rounded-3xl p-8 relative overflow-hidden shadow-sm" style={{ transitionDelay: '160ms' }}>
+                            <div className="grid-lines absolute inset-0 opacity-70" />
+                            <div className="relative">
+                                <h4 className="font-['Sora',sans-serif] text-xl font-semibold text-gray-900 mb-3">Find Us on Google Maps</h4>
+                                <p className="text-gray-600 leading-relaxed mb-6">Search &quot;Latitude Construction Hosur&quot; on Google Maps or call us for precise directions.</p>
+                                <a href="https://www.google.com/maps/search/Latitude+Construction+Hosur" className="btn-outline inline-block bg-white border-2 border-green-700 text-green-700 px-6 py-3 rounded-xl text-sm tracking-widest uppercase font-semibold">Get Directions — Hosur Office</a>
+                            </div>
+                        </div> */}
+
+                         <div className="reveal lift relative overflow-hidden bg-gradient-to-br from-green-600 to-green-800 text-white rounded-2xl p-7 flex flex-col justify-center gap-3 shadow-lg shadow-green-700/30" style={{ transitionDelay: '160ms' }}>
+                            <div className="pointer-events-none absolute -right-10 -top-10 w-40 h-40 rounded-full bg-white/10 blur-2xl" />
+                            <p className="relative text-xs uppercase tracking-[0.25em] text-green-100 mb-1">Get in touch</p>
+                            <a href="https://wa.me/918951639116" className="group relative flex items-center justify-between border border-white/25 rounded-xl px-5 py-3.5 hover:bg-white hover:text-green-700 transition-all duration-300">
+                                <span className="flex items-center gap-2 font-semibold text-sm tracking-wide">
+                                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" /></svg>
+                                    Chat on WhatsApp
+                                </span>
+                                <span className="group-hover:translate-x-1 transition-transform">→</span>
+                            </a>
+                            <a href="tel:+918951639116" className="group relative flex items-center justify-between border border-white/25 rounded-xl px-5 py-3.5 hover:bg-white hover:text-green-700 transition-all duration-300">
+                                <span className="flex items-center gap-2 font-semibold text-sm tracking-wide">
+                                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
+                                    Call Now
+                                </span>
+                                <span className="group-hover:translate-x-1 transition-transform">→</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section className="relative py-32 px-6 overflow-hidden bg-green-800">
+                <div ref={addParallax} data-speed="0.1" className="absolute inset-0" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px)', backgroundSize: '46px 46px' }} />
+                <div ref={addParallax} data-speed="0.22" className="glow-orb absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[42rem] h-[42rem] rounded-full bg-green-400/20 blur-[140px]" />
+                <div className="relative max-w-3xl mx-auto text-center">
+                    <h2 className="reveal underline-grow font-['Sora',sans-serif] text-white text-4xl md:text-5xl font-bold leading-tight inline-block mb-7">Ready to Build Your Dream Home?</h2>
+                    <p className="reveal text-green-100/90 text-lg leading-relaxed mb-12 max-w-xl mx-auto">Get a free consultation and site visit. We cover Bangalore, Hosur, Jowlagiri &amp; Denkanikottai.</p>
+                    <div className="reveal flex flex-wrap justify-center gap-4">
+                        <a href="tel:+918951639116" className="bg-white text-green-800 px-10 py-4 rounded-lg text-sm tracking-widest uppercase font-semibold hover:bg-green-50 hover:-translate-y-0.5 transition-all duration-300 shadow-lg">Call</a>
+                        <a href="https://wa.me/918951639116" className="border-2 border-white/60 text-white px-10 py-4 rounded-lg text-sm tracking-widest uppercase font-semibold hover:bg-white hover:text-green-800 hover:-translate-y-0.5 transition-all duration-300">WhatsApp Us</a>
+                        <a href="#enquiry" className="border-2 border-white/60 text-white px-10 py-4 rounded-lg text-sm tracking-widest uppercase font-semibold hover:bg-white hover:text-green-800 hover:-translate-y-0.5 transition-all duration-300">Send Enquiry</a>
+                    </div>
+                </div>
+            </section>
+
+
+        </div>
+    )
+}
+
+export default Page

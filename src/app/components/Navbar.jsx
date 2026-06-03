@@ -12,8 +12,8 @@ const navigation = [
   { name: "Home", href: "/", current: true },
   { name: "About", href: "/about-us", current: false },
   { name: "Services", href: "/services", current: false },
-  { name: "Packages", href: "/Packages", current: false },
-  { name: "Portfolio", href: "/Portfolio", current: false },
+  { name: "Packages", href: "/packages", current: false },
+  { name: "Portfolio", href: "/portfolio", current: false },
   { name: "Contact", href: "/contact", current: false },
 ];
 
