@@ -22,7 +22,7 @@ const Footer = () => {
           <div className="lg:col-span-4">
 
             <div className="flex items-center gap-4">
-              <div className="h-24 w-34 overflow-hidden rounded-xl border border-white/10 bg-white/5">
+              <div className="h-20 w-20 overflow-hidden  border border-white/10 bg-white/5">
                 <img
                   src="/logo.jpeg"
                   alt="Latitude Constructions"
