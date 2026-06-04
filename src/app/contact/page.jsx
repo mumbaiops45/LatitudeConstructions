@@ -1,13 +1,65 @@
 'use client'
 
-import React, { useEffect, useRef } from 'react'
-
-
+import React, { useState, useEffect, useRef } from 'react'
+import { motion } from "framer-motion";
 
 const Page = () => {
+    const [formData, setFormData] = useState({
+        fullName: "",
+        phone: "",
+        email: "",
+        service: "",
+        location: "",
+        budget: "",
+        message: "",
+    });
     const parallaxRefs = useRef([])
     parallaxRefs.current = []
     const addParallax = (el) => { if (el && !parallaxRefs.current.includes(el)) parallaxRefs.current.push(el) }
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+
+        setFormData((prev) => ({
+            ...prev,
+            [name]: value,
+        }));
+    };
+
+    const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+        const response = await fetch("https://formsubmit.co/ajax/latitudeconstructions080@gmail.com", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+        });
+
+        const data = await response.json();
+
+       
+        setFormData({
+            fullName: "",
+            phone: "",
+            email: "",
+            service: "",
+            location: "",
+            budget: "",
+            message: "",
+        });
+
+        alert("Enquiry submitted successfully!");
+
+    } catch (error) {
+        console.error("Error submitting form:", error);
+        alert("Something went wrong!");
+    }
+};
+
+
 
     useEffect(() => {
         const io = new IntersectionObserver(
@@ -117,57 +169,6 @@ const Page = () => {
                         </p>
                     </div>
 
-
-                    {/* <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"> */}
-
-
-                        {/* <div className="reveal lift group relative overflow-hidden bg-white border border-gray-200 rounded-2xl p-7 shadow-sm transition-all duration-300 hover:border-green-300 hover:shadow-[0_20px_45px_-20px_rgba(22,163,74,0.45)]">
-                            <div className="absolute inset-0 bg-gradient-to-br from-green-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                            <div className="relative">
-                                <div className="w-12 h-12 rounded-xl bg-green-700/10 text-green-700 flex items-center justify-center mb-4 transition-colors duration-300 group-hover:bg-green-600 group-hover:text-white">
-                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
-                                </div>
-                                <p className="text-gray-400 text-xs tracking-[0.25em] uppercase mb-2">Phone</p>
-                                <p className="text-lg text-gray-900 font-medium">+91 89516 39116</p>
-                            </div>
-                        </div> */}
-
-
-                        {/* <div className="reveal lift group relative overflow-hidden bg-white border border-gray-200 rounded-2xl p-7 shadow-sm transition-all duration-300 hover:border-green-300 hover:shadow-[0_20px_45px_-20px_rgba(22,163,74,0.45)]">
-                            <div className="absolute inset-0 bg-gradient-to-br from-green-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                            <div className="relative">
-                                <div className="w-12 h-12 rounded-xl bg-green-700/10 text-green-700 flex items-center justify-center mb-4 transition-colors duration-300 group-hover:bg-green-600 group-hover:text-white">
-                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z" /></svg>
-                                </div>
-                                <p className="text-gray-400 text-xs tracking-[0.25em] uppercase mb-2">Service Areas</p>
-                                <p className="text-lg text-gray-900 font-medium leading-relaxed">Bangalore, Hosur, Jowlagiri, Denkanikottai &amp; surrounding regions</p>
-                            </div>
-                        </div> */}
-
-
-                       
-
-
-                        {/* <div className="reveal lift relative overflow-hidden bg-gradient-to-br from-green-600 to-green-800 text-white rounded-2xl p-7 flex flex-col justify-center gap-3 shadow-lg shadow-green-700/30" style={{ transitionDelay: '160ms' }}>
-                            <div className="pointer-events-none absolute -right-10 -top-10 w-40 h-40 rounded-full bg-white/10 blur-2xl" />
-                            <p className="relative text-xs uppercase tracking-[0.25em] text-green-100 mb-1">Get in touch</p>
-                            <a href="https://wa.me/918951639116" className="group relative flex items-center justify-between border border-white/25 rounded-xl px-5 py-3.5 hover:bg-white hover:text-green-700 transition-all duration-300">
-                                <span className="flex items-center gap-2 font-semibold text-sm tracking-wide">
-                                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" /></svg>
-                                    Chat on WhatsApp
-                                </span>
-                                <span className="group-hover:translate-x-1 transition-transform">→</span>
-                            </a>
-                            <a href="tel:+918951639116" className="group relative flex items-center justify-between border border-white/25 rounded-xl px-5 py-3.5 hover:bg-white hover:text-green-700 transition-all duration-300">
-                                <span className="flex items-center gap-2 font-semibold text-sm tracking-wide">
-                                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
-                                    Call Now
-                                </span>
-                                <span className="group-hover:translate-x-1 transition-transform">→</span>
-                            </a>
-                        </div> */}
-
-                    {/* </div> */}
                 </div>
             </section>
 
@@ -177,44 +178,109 @@ const Page = () => {
                 <div ref={addParallax} data-speed="0.16" className="absolute top-0 right-0 w-[30rem] h-[30rem] rounded-full bg-green-500/10 blur-[130px]" />
                 <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-14 relative">
 
+                    <form
+                        onSubmit={handleSubmit}
+                        className="reveal bg-gray-50 border border-gray-200 rounded-3xl p-8 md:p-10 shadow-sm"
+                    >
+                        <h2 className="font-['Sora',sans-serif] text-gray-900 text-4xl font-bold mb-8">
+                            Send Us an <span className="text-green-700">Enquiry</span>
+                        </h2>
 
-                    <div className="reveal bg-gray-50 border border-gray-200 rounded-3xl p-8 md:p-10 shadow-sm">
-                        <h2 className="font-['Sora',sans-serif] text-gray-900 text-4xl font-bold mb-8">Send Us an <span className="text-green-700">Enquiry</span></h2>
                         <div className="space-y-5">
+
+
                             <div>
-                                <label className="block text-xs tracking-[0.2em] uppercase text-gray-500 font-semibold mb-2">Full Name *</label>
-                                <input type="text" className="field w-full bg-white border border-gray-300 rounded-xl px-4 py-3.5 text-gray-900 placeholder:text-gray-400" placeholder="Your name" />
+                                <label className="block text-xs tracking-[0.2em] uppercase text-gray-500 font-semibold mb-2">
+                                    Full Name *
+                                </label>
+                                <input
+                                    type="text"
+                                    name="fullName"
+                                    value={formData.fullName}
+                                    onChange={handleChange}
+                                    className="field w-full bg-white border border-gray-300 rounded-xl px-4 py-3.5 text-gray-900 placeholder:text-gray-400"
+                                    placeholder="Your name"
+                                />
                             </div>
+
+
                             <div className="grid sm:grid-cols-2 gap-5">
                                 <div>
-                                    <label className="block text-xs tracking-[0.2em] uppercase text-gray-500 font-semibold mb-2">Phone Number *</label>
-                                    <input type="tel" className="field w-full bg-white border border-gray-300 rounded-xl px-4 py-3.5 text-gray-900 placeholder:text-gray-400" placeholder="+91" />
+                                    <label className="block text-xs tracking-[0.2em] uppercase text-gray-500 font-semibold mb-2">
+                                        Phone Number *
+                                    </label>
+                                    <input
+                                        type="tel"
+                                        name="phone"
+                                        value={formData.phone}
+                                        onChange={handleChange}
+                                        className="field w-full bg-white border border-gray-300 rounded-xl px-4 py-3.5 text-gray-900 placeholder:text-gray-400"
+                                        placeholder="+91"
+                                    />
                                 </div>
+
                                 <div>
-                                    <label className="block text-xs tracking-[0.2em] uppercase text-gray-500 font-semibold mb-2">Email Address</label>
-                                    <input type="email" className="field w-full bg-white border border-gray-300 rounded-xl px-4 py-3.5 text-gray-900 placeholder:text-gray-400" placeholder="you@email.com" />
+                                    <label className="block text-xs tracking-[0.2em] uppercase text-gray-500 font-semibold mb-2">
+                                        Email Address
+                                    </label>
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        className="field w-full bg-white border border-gray-300 rounded-xl px-4 py-3.5 text-gray-900 placeholder:text-gray-400"
+                                        placeholder="you@email.com"
+                                    />
                                 </div>
                             </div>
+
+
                             <div>
-                                <label className="block text-xs tracking-[0.2em] uppercase text-gray-500 font-semibold mb-2">Service Interested In *</label>
-                                <select className="field w-full bg-white border border-gray-300 rounded-xl px-4 py-3.5 text-gray-900">
+                                <label className="block text-xs tracking-[0.2em] uppercase text-gray-500 font-semibold mb-2">
+                                    Service Interested In *
+                                </label>
+                                <select
+                                    name="service"
+                                    value={formData.service}
+                                    onChange={handleChange}
+                                    className="field w-full bg-white border border-gray-300 rounded-xl px-4 py-3.5 text-gray-900"
+                                >
                                     <option value="">Select a service…</option>
                                     <option>Eco-Friendly Construction</option>
                                     <option>Residential Turnkey Project</option>
                                     <option>Commercial Construction</option>
-                                    <option>Interior Design &amp; Execution</option>
-                                    <option>Renovation &amp; Development</option>
-                                    <option>Architecture &amp; Approvals</option>
+                                    <option>Interior Design & Execution</option>
+                                    <option>Renovation & Development</option>
+                                    <option>Architecture & Approvals</option>
                                     <option>General Enquiry</option>
                                 </select>
                             </div>
+
                             <div>
-                                <label className="block text-xs tracking-[0.2em] uppercase text-gray-500 font-semibold mb-2">Project Location / Area *</label>
-                                <input type="text" className="field w-full bg-white border border-gray-300 rounded-xl px-4 py-3.5 text-gray-900 placeholder:text-gray-400" placeholder="City / locality" />
+                                <label className="block text-xs tracking-[0.2em] uppercase text-gray-500 font-semibold mb-2">
+                                    Project Location / Area *
+                                </label>
+                                <input
+                                    type="text"
+                                    name="location"
+                                    value={formData.location}
+                                    onChange={handleChange}
+                                    className="field w-full bg-white border border-gray-300 rounded-xl px-4 py-3.5 text-gray-900 placeholder:text-gray-400"
+                                    placeholder="City / locality"
+                                />
                             </div>
+
+
                             <div>
-                                <label className="block text-xs tracking-[0.2em] uppercase text-gray-500 font-semibold mb-2">Budget Range</label>
-                                <select className="field w-full bg-white border border-gray-300 rounded-xl px-4 py-3.5 text-gray-900">
+                                <label className="block text-xs tracking-[0.2em] uppercase text-gray-500 font-semibold mb-2">
+                                    Budget Range
+                                </label>
+                                <select
+                                    name="budget"
+                                    value={formData.budget}
+                                    onChange={handleChange}
+                                    className="field w-full bg-white border border-gray-300 rounded-xl px-4 py-3.5 text-gray-900"
+                                >
                                     <option value="">Select your budget range…</option>
                                     <option>Below ₹30 Lakhs</option>
                                     <option>₹30 Lakhs – ₹50 Lakhs</option>
@@ -223,14 +289,38 @@ const Page = () => {
                                     <option>Not Decided Yet</option>
                                 </select>
                             </div>
+
+
                             <div>
-                                <label className="block text-xs tracking-[0.2em] uppercase text-gray-500 font-semibold mb-2">Message / Requirements</label>
-                                <textarea rows="4" className="field w-full bg-white border border-gray-300 rounded-xl px-4 py-3.5 text-gray-900 placeholder:text-gray-400 resize-none" placeholder="Tell us about your project — plot size, number of floors, special requirements, timeline, etc." />
+                                <label className="block text-xs tracking-[0.2em] uppercase text-gray-500 font-semibold mb-2">
+                                    Message / Requirements
+                                </label>
+                                <textarea
+                                    rows="4"
+                                    name="message"
+                                    value={formData.message}
+                                    onChange={handleChange}
+                                    className="field w-full bg-white border border-gray-300 rounded-xl px-4 py-3.5 text-gray-900 placeholder:text-gray-400 resize-none"
+                                    placeholder="Tell us about your project..."
+                                />
                             </div>
-                            <button className="btn-primary w-full py-4 rounded-xl text-sm tracking-[0.2em] uppercase font-semibold mt-2"><span>Send Enquiry</span></button>
-                            <p className="text-sm text-gray-500 leading-relaxed pt-2">After submitting, we&apos;ll get back to you within <strong className="text-gray-900">24 hours.</strong> For urgent queries, call or WhatsApp directly on <strong className="text-green-700">+91 89516 39116.</strong></p>
+
+
+                            <button
+                                type="submit"
+                                className="btn-primary w-full py-4 rounded-xl text-sm tracking-[0.2em] uppercase font-semibold mt-2"
+                            >
+                                <span>Send Enquiry</span>
+                            </button>
+
+                            <p className="text-sm text-gray-500 leading-relaxed pt-2">
+                                After submitting, we'll get back to you within{" "}
+                                <strong className="text-gray-900">24 hours.</strong> For urgent queries,
+                                call or WhatsApp directly on{" "}
+                                <strong className="text-green-700">+91 89516 39116.</strong>
+                            </p>
                         </div>
-                    </div>
+                    </form>
 
 
                     <div className="flex flex-col gap-6">
@@ -259,48 +349,89 @@ const Page = () => {
                             </div>
                         </div>
 
-                         {/* <div className="reveal lift bg-gray-50 border border-gray-200 rounded-3xl p-8 relative overflow-hidden shadow-sm" style={{ transitionDelay: '160ms' }}>
-                            <div className="grid-lines absolute inset-0 opacity-70" />
-                            <div className="relative">
-                                <h4 className="font-['Sora',sans-serif] text-xl font-semibold text-gray-900 mb-3">Find Us on Google Maps</h4>
-                                <p className="text-gray-600 leading-relaxed mb-6">Search &quot;Latitude Construction Hosur&quot; on Google Maps or call us for precise directions.</p>
-                                <a href="https://www.google.com/maps/search/Latitude+Construction+Hosur" className="btn-outline inline-block bg-white border-2 border-green-700 text-green-700 px-6 py-3 rounded-xl text-sm tracking-widest uppercase font-semibold">Get Directions — Hosur Office</a>
-                            </div>
-                        </div> */}
 
-                         <div className="reveal lift relative overflow-hidden bg-gradient-to-br from-green-600 to-green-800 text-white rounded-2xl p-7 flex flex-col justify-center gap-3 shadow-lg shadow-green-700/30" style={{ transitionDelay: '160ms' }}>
-                            <div className="pointer-events-none absolute -right-10 -top-10 w-40 h-40 rounded-full bg-white/10 blur-2xl" />
+
+                        <div className="reveal lift relative overflow-hidden bg-gradient-to-br from-green-600 to-green-800 text-white rounded-2xl p-7 flex flex-col justify-center gap-3 shadow-lg shadow-green-700/30" style={{ transitionDelay: '160ms' }}>
+                            <div className="pointer-events-none  absolute -right-10 -top-10 w-40 h-40 rounded-full bg-white/10 blur-2xl" />
                             <p className="relative text-xs uppercase tracking-[0.25em] text-green-100 mb-1">Get in touch</p>
-                            <a href="https://wa.me/918951639116" className="group relative flex items-center justify-between border border-white/25 rounded-xl px-5 py-3.5 hover:bg-white hover:text-green-700 transition-all duration-300">
-                                <span className="flex items-center gap-2 font-semibold text-sm tracking-wide">
-                                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" /></svg>
-                                    Chat on WhatsApp
-                                </span>
-                                <span className="group-hover:translate-x-1 transition-transform">→</span>
-                            </a>
-                            <a href="tel:+918951639116" className="group relative flex items-center justify-between border border-white/25 rounded-xl px-5 py-3.5 hover:bg-white hover:text-green-700 transition-all duration-300">
-                                <span className="flex items-center gap-2 font-semibold text-sm tracking-wide">
-                                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
-                                    Call Now
-                                </span>
-                                <span className="group-hover:translate-x-1 transition-transform">→</span>
-                            </a>
+
+                            <div className="flex gap-4">
+                                <a
+                                    href="https://wa.me/918951639116"
+                                    target='_blank'
+                                    className="group relative flex flex-1 items-center justify-between border border-white/25 rounded-xl px-5 py-3.5 hover:bg-white hover:text-green-700 transition-all duration-300"
+                                >
+                                    <span className="flex items-center gap-2 font-semibold text-sm tracking-wide">
+                                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                            <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
+                                        </svg>
+                                        Chat on WhatsApp
+                                    </span>
+                                    <span className="group-hover:translate-x-1 transition-transform">→</span>
+                                </a>
+
+                                <a
+                                    href="tel:+918951639116"
+                                    className="group relative flex flex-1 items-center justify-between border border-white/25 rounded-xl px-5 py-3.5 hover:bg-white hover:text-green-700 transition-all duration-300"
+                                >
+                                    <span className="flex items-center gap-2 font-semibold text-sm tracking-wide">
+                                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
+                                        </svg>
+                                        Call Now
+                                    </span>
+                                    <span className="group-hover:translate-x-1 transition-transform">→</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
 
-            <section className="relative py-32 px-6 overflow-hidden bg-green-800">
-                <div ref={addParallax} data-speed="0.1" className="absolute inset-0" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px)', backgroundSize: '46px 46px' }} />
-                <div ref={addParallax} data-speed="0.22" className="glow-orb absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[42rem] h-[42rem] rounded-full bg-green-400/20 blur-[140px]" />
-                <div className="relative max-w-3xl mx-auto text-center">
-                    <h2 className="reveal underline-grow font-['Sora',sans-serif] text-white text-4xl md:text-5xl font-bold leading-tight inline-block mb-7">Ready to Build Your Dream Home?</h2>
-                    <p className="reveal text-green-100/90 text-lg leading-relaxed mb-12 max-w-xl mx-auto">Get a free consultation and site visit. We cover Bangalore, Hosur, Jowlagiri &amp; Denkanikottai.</p>
-                    <div className="reveal flex flex-wrap justify-center gap-4">
-                        <a href="tel:+918951639116" className="bg-white text-green-800 px-10 py-4 rounded-lg text-sm tracking-widest uppercase font-semibold hover:bg-green-50 hover:-translate-y-0.5 transition-all duration-300 shadow-lg">Call</a>
-                        <a href="https://wa.me/918951639116" className="border-2 border-white/60 text-white px-10 py-4 rounded-lg text-sm tracking-widest uppercase font-semibold hover:bg-white hover:text-green-800 hover:-translate-y-0.5 transition-all duration-300">WhatsApp Us</a>
-                        <a href="#enquiry" className="border-2 border-white/60 text-white px-10 py-4 rounded-lg text-sm tracking-widest uppercase font-semibold hover:bg-white hover:text-green-800 hover:-translate-y-0.5 transition-all duration-300">Send Enquiry</a>
+            <section className="mx-auto max-w-7xl px-6 pb-28 pt-8">
+                <div className="relative overflow-hidden rounded-[32px] border border-emerald-400/20 bg-gradient-to-br from-emerald-950 via-emerald-900 to-green-950 p-10 text-center shadow-2xl shadow-emerald-950/40 md:p-16">
+                    <div className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-emerald-400/15 blur-3xl" />
+                    <div className="pointer-events-none absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-green-300/10 blur-3xl" />
+                    <div className="mb-5 inline-flex items-center rounded-full border border-emerald-400/20 bg-white/5 px-4 py-2 text-sm font-medium text-emerald-300 backdrop-blur-md">
+                        🏡 Trusted Home Construction Experts
+                    </div>
+                    <h2 className="text-3xl font-bold tracking-tight text-white md:text-5xl">
+                        Ready to Build Your Dream Home?
+                    </h2>
+                    <p className="mx-auto mt-5 max-w-3xl text-base leading-relaxed text-zinc-300 md:text-lg">
+                        Get a free consultation and site visit from our expert team.
+                        We proudly serve Bangalore, Hosur, Jowlagiri & Denkanikottai
+                        with premium residential construction solutions.
+                    </p>
+                    <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+                        <motion.a
+                            href="tel:8951639116"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.97 }}
+                            className="rounded-full bg-gradient-to-r from-emerald-400 to-green-500 px-8 py-4 text-sm font-semibold text-emerald-950 shadow-lg shadow-emerald-500/30 transition-all duration-300 hover:shadow-emerald-400/50"
+                        >
+                            📞 Call Now
+                        </motion.a>
+                        <motion.a
+                            href="https://wa.me/918951639116"
+                            target="_blank"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.97 }}
+                            className="rounded-full border border-emerald-400/20 bg-white/5 px-8 py-4 text-sm font-semibold text-white backdrop-blur-xl transition-all duration-300 hover:border-emerald-400/50 hover:bg-white/10"
+                        >
+                            WhatsApp Us
+                        </motion.a>
+
+                        <motion.a
+                            href="/contact#enquiry"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.97 }}
+                            className="rounded-full border border-emerald-400/20 bg-white/5 px-8 py-4 text-sm font-semibold text-white backdrop-blur-xl transition-all duration-300 hover:border-emerald-400/50 hover:bg-white/10"
+                        >
+                            Send Enquiry
+                        </motion.a>
+
                     </div>
                 </div>
             </section>

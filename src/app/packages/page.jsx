@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Building2, Landmark, LayoutGrid, Zap, Wrench, PanelsTopLeft, DoorOpen, DoorClosed, Bath, ChefHat, Droplets, } from "lucide-react";
-import { packages, included, excluded, milestones  } from "../data/data"
+import { packages, included, excluded, milestones } from "../data/data"
 
 
 const wallOptions = [
@@ -711,29 +711,50 @@ export default function Page() {
 
 
 
-            <section className="mt-28 px-10 mb-16">
-                <div className="bg-gradient-to-r from-emerald-500 to-emerald-500 rounded-[40px] p-12 text-center text-white shadow-2xl">
-                    <h2 className="text-4xl md:text-5xl font-bold">
-                        Ready To Build Your Dream Home?
+            <section className="mx-auto max-w-7xl px-6 pb-28 pt-8">
+                <div className="relative overflow-hidden rounded-[32px] border border-emerald-400/20 bg-gradient-to-br from-emerald-950 via-emerald-900 to-green-950 p-10 text-center shadow-2xl shadow-emerald-950/40 md:p-16">
+                    <div className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-emerald-400/15 blur-3xl" />
+                    <div className="pointer-events-none absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-green-300/10 blur-3xl" />
+                    <div className="mb-5 inline-flex items-center rounded-full border border-emerald-400/20 bg-white/5 px-4 py-2 text-sm font-medium text-emerald-300 backdrop-blur-md">
+                        🏡 Trusted Home Construction Experts
+                    </div>
+                    <h2 className="text-3xl font-bold tracking-tight text-white md:text-5xl">
+                        Ready to Build Your Dream Home?
                     </h2>
-
-                    <p className="mt-5 text-lg max-w-3xl mx-auto">
-                        Get a free consultation and site visit. We cover Bangalore,
-                        Hosur, Jowlagiri and Denkanikottai.
+                    <p className="mx-auto mt-5 max-w-3xl text-base leading-relaxed text-zinc-300 md:text-lg">
+                        Get a free consultation and site visit from our expert team.
+                        We proudly serve Bangalore, Hosur, Jowlagiri & Denkanikottai
+                        with premium residential construction solutions.
                     </p>
-
-                    <div className="flex flex-wrap justify-center gap-5 mt-10">
-                        <button className="bg-white text-black px-8 py-4 rounded-full font-semibold hover:scale-105 transition">
-                            Call Now
-                        </button>
-
-                        <button className="bg-black px-8 py-4 rounded-full font-semibold hover:scale-105 transition">
+                    <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+                        <motion.a
+                            href="tel:8951639116"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.97 }}
+                            className="rounded-full bg-gradient-to-r from-emerald-400 to-green-500 px-8 py-4 text-sm font-semibold text-emerald-950 shadow-lg shadow-emerald-500/30 transition-all duration-300 hover:shadow-emerald-400/50"
+                        >
+                            📞 Call Now
+                        </motion.a>
+                        <motion.a
+                            href="https://wa.me/918951639116"
+                            target="_blank"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.97 }}
+                            className="rounded-full border border-emerald-400/20 bg-white/5 px-8 py-4 text-sm font-semibold text-white backdrop-blur-xl transition-all duration-300 hover:border-emerald-400/50 hover:bg-white/10"
+                        >
                             WhatsApp Us
-                        </button>
+                        </motion.a>
 
-                        <button className="border border-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-black transition">
+                        <motion.a
+                            // href="#enquiry"
+                              href="/contact#enquiry"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.97 }}
+                            className="rounded-full border border-emerald-400/20 bg-white/5 px-8 py-4 text-sm font-semibold text-white backdrop-blur-xl transition-all duration-300 hover:border-emerald-400/50 hover:bg-white/10"
+                        >
                             Send Enquiry
-                        </button>
+                        </motion.a>
+
                     </div>
                 </div>
             </section>

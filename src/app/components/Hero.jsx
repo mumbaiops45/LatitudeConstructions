@@ -191,7 +191,8 @@ export default function Hero() {
                                 <motion.a
                                     whileHover={{ scale: 1.03, backgroundClip: "#4ade80" }}
                                     whileTap={{ scale: 0.97 }}
-                                    className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-3.5 rounded-full bg-black text-white text-xs sm:text-sm font-semibold tracking-wide transition-all duration-300 whitespace-nowrap"
+                                     href="tel:8951639116"
+                                    className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-3.5 rounded-full bg-black text-white text-xs sm:text-sm font-semibold tracking-wide cursor-pointer transition-all duration-300 whitespace-nowrap"
                                 >
                                     Free Consulation
                                     <span className="text-base">→</span>
@@ -200,7 +201,7 @@ export default function Hero() {
                                 <motion.a
                                     
                                     whileTap={{ scale: 0.97 }}
-                                    href="/projects"
+                                    href="/portfolio" 
                                     className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-3.5 rounded-full border bg-black border-white/10 text-white text-xs sm:text-sm font-medium tracking-wide transition-all duration-300 hover: text-gray-100 whitespace-nowrap"
                                 >
                                     View Work
@@ -273,7 +274,7 @@ export default function Hero() {
 
                 </div>
             </motion.div>
-            <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-[#070707] to-transparent pointer-events-none" />
+            {/* <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-[#070707] to-transparent pointer-events-none" /> */}
         </section>
     );
 }

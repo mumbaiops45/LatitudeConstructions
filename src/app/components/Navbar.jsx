@@ -32,16 +32,15 @@ export default function Navbar() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="flex h-20 items-center justify-between">
 
-             
-              <div className="flex items-center gap-3">
+              <a href="/" className="flex items-center shrink-0">
                 <img
                   src="/logo.jpeg"
-                  alt="Logo"
-                  className="h-12 w-auto object-contain sm:h-14"
+                  alt="Company Logo"
+                  className="h-10 w-auto sm:h-12 md:h-20"
                 />
-              </div>
+              </a>
 
-             
+
               <div className="hidden items-center gap-2 md:flex lg:gap-4">
 
                 {navigation.map((item) => (
@@ -59,13 +58,13 @@ export default function Navbar() {
                   </a>
                 ))}
 
-                
+
                 <button className="ml-2 rounded-full bg-gradient-to-r from-emerald-500 via-green-500 to-green-400 px-6 py-2.5 text-sm font-semibold text-black shadow-lg shadow-emerald-500/20 transition-all duration-300 hover:scale-105 hover:shadow-emerald-500/40">
                   Get Started
                 </button>
               </div>
 
-             
+
               <div className="md:hidden">
                 <DisclosureButton className="rounded-xl p-2 text-zinc-300 transition hover:bg-white/10 hover:text-white">
                   {open ? (
@@ -78,7 +77,7 @@ export default function Navbar() {
             </div>
           </div>
 
-         
+
           <DisclosurePanel className="border-t border-white/10 bg-black/90 backdrop-blur-2xl md:hidden">
             <div className="space-y-3 px-4 py-5">
 
@@ -97,7 +96,7 @@ export default function Navbar() {
                 </a>
               ))}
 
-           
+
               <button className="mt-4 w-full rounded-xl bg-gradient-to-r from-emerald-500 via-green-500 to-green-400 py-3 font-semibold text-black shadow-lg transition hover:scale-[1.02]">
                 Get Started
               </button>

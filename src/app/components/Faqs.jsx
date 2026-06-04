@@ -9,7 +9,6 @@ import { motion } from "framer-motion";
 export default function FAQSection() {
     return (
         <>
-
             <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
                 <div className="text-center mb-14">
                     <span className="text-xs tracking-[0.35em] uppercase text-gray-500">
@@ -34,9 +33,6 @@ export default function FAQSection() {
                     ))}
                 </div>
             </section>
-
-
-
 
             <section className="relative px-6 py-24 overflow-hidden text-white">
                 <div className="absolute inset-0 bg-gradient-to-b from-[#040804] via-[#07140b] to-[#030503]" />
@@ -84,11 +80,8 @@ export default function FAQSection() {
 
                         <a
                             href="tel:+918951639116"
-                            className="relative inline-flex items-center gap-2 px-8 py-4 rounded-full
-                text-white text-sm font-medium
-                bg-gradient-to-r from-emerald-700 via-green-600 to-emerald-500
-                shadow-lg shadow-emerald-900/30
-                hover:scale-[1.05] transition-all duration-300"
+                            target="_blank"
+                            className="relative inline-flex items-center gap-2 px-8 py-4 rounded-full   text-white text-sm font-medium    bg-gradient-to-r from-emerald-700 via-green-600 to-emerald-500  shadow-lg shadow-emerald-900/30   hover:scale-[1.05] transition-all duration-300"
                         >
                             📞 Call Now
                         </a>
@@ -96,26 +89,18 @@ export default function FAQSection() {
 
                         <a
                             href="https://wa.me/918951639116"
+                            target="_blank"
                             className="relative inline-flex items-center gap-2 px-8 py-4 rounded-full
-                text-emerald-200 text-sm font-medium
-                bg-white/5 backdrop-blur-xl
-                border border-emerald-500/30
-                hover:bg-emerald-900/30
-                hover:border-emerald-400/50
-                transition-all duration-300"
+                text-emerald-200 text-sm font-medium bg-gradient-to-r from-emerald-700 via-green-600 to-emerald-500  hover:bg-emerald-900/30  hover:border-emerald-400/50  transition-all duration-300"
                         >
                             💬 WhatsApp Us
                         </a>
 
 
                         <a
-                            href="/contact"
+                            href="/contact#enquiry"
                             className="relative inline-flex items-center gap-2 px-8 py-4 rounded-full
-                text-zinc-300 text-sm font-medium
-                border border-zinc-600/40
-                hover:border-emerald-400/40
-                hover:text-white
-                transition-all duration-300"
+                text-zinc-300 text-sm font-medium   bg-gradient-to-r from-emerald-700 via-green-600 to-emerald-500 border border-zinc-600/40 hover:border-emerald-400/40  hover:text-white transition-all duration-300"
                         >
                             Send Enquiry
                         </a>
@@ -134,7 +119,6 @@ function FaqItem({ q, a, index }) {
 
     return (
         <>
-
             <div
                 className="group rounded-2xl border border-gray-200 bg-white/70 backdrop-blur-md shadow-sm hover:shadow-md transition-all duration-300"
             >

@@ -1,15 +1,15 @@
 'use client'
 
-import React, { useRef, useState } from 'react'
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
-import { Phone, MessageCircle, Send, MapPin, ArrowRight } from 'lucide-react'
+import React, { useRef, useState, useEffect } from 'react'
+import { motion, useScroll, useTransform, useInView, AnimatePresence } from 'framer-motion'
+import { MapPin, ArrowRight } from 'lucide-react'
 
 
 const stats = [
-  { value: '40+', label: 'Completed Projects' },
-  { value: '10', label: 'Ongoing Projects' },
-  { value: '3', label: 'Layout Developments' },
-  { value: '2', label: 'Apartment Complexes' },
+  { n: 40, s: '+', l: 'Completed Projects' },
+  { n: 10, s: '+', l: 'Ongoing Projects' },
+  { n: 3, s: '', l: 'Layout Development' },
+  { n: 2, s: '', l: 'Apartment Complexes' },
 ]
 
 const projects = [
@@ -23,7 +23,7 @@ const projects = [
   { img: '/mathew.jpg', category: 'Farmhouse', status: 'COMPLETED', title: 'Mr. Mathew', location: '', desc: '' },
   { img: '/Shibu.jpg', category: 'Farmhouse', status: 'COMPLETED', title: 'Mr. Shibu', location: '', desc: '' },
   { img: '/srinivas.jpeg', category: 'Farmhouse', status: 'COMPLETED', title: 'Mr. Srinivas', location: '', desc: '' },
-  { img: '/satish.webp',  category: 'Farmhouse', status: 'COMPLETED', title: 'Mr. Sathish', location: '', desc: '' },
+  { img: '/satish.webp', category: 'Farmhouse', status: 'COMPLETED', title: 'Mr. Sathish', location: '', desc: '' },
 
   { img: '/Contemporary.jpg', category: 'Residential Villa', status: 'UNDER CONSTRUCTION', title: 'Mr. John Villa', location: 'Onnalvadi, Hosur', desc: 'Contemporary modern villa, Onnalvadi, Hosur' },
   { img: '/ashok.jpg', category: 'Residential Villa', status: 'COMPLETED', title: 'Mr. Ashok Villa', location: 'Thillai Nagar, Hosur', desc: '' },
@@ -31,7 +31,7 @@ const projects = [
   { img: '/8-acre.jpg', category: 'Layout', status: 'COMPLETED', title: 'RS Avenue', location: 'Hosur, Tamil Nadu', desc: '8-acre premium residential layout' },
   { img: '/5-acre.jpg', category: 'Layout', status: 'COMPLETED', title: 'MM Enclave', location: 'Devanahalli', desc: '5-acre residential layout development' },
   { img: '/1-acre.jpg', category: 'Layout', status: 'COMPLETED', title: 'Manaya Villas', location: '', desc: '1-acre premium villa layout' },
- 
+
   { img: '/62flats.jpg', category: 'Apartment', status: 'COMPLETED', title: 'SJR Vogue Residences', location: 'Whitefield, Bangalore', desc: '62 flats — flooring, painting, fittings and handover' },
   { img: '/Multi-unitf.jpg', category: 'Apartment', status: 'COMPLETED', title: 'Mahaveer Apartment', location: 'Kanakpura Road, Bangalore', desc: 'Multi-unit apartment finishing and interior works' },
 ]
@@ -41,6 +41,31 @@ const filters = ['All Projects', 'Farmhouse', 'Residential Villa', 'Layout', 'Ap
 
 const fadeUp = { hidden: { opacity: 0, y: 40 }, show: { opacity: 1, y: 0 } }
 const stagger = { hidden: {}, show: { transition: { staggerChildren: 0.08 } } }
+
+const cardAnim = {
+  hidden: { opacity: 0, y: 44, scale: 0.96 },
+  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.68, ease: [0.22, 1, 0.36, 1] } },
+}
+
+
+
+
+function AnimCounter({ to, suffix = '' }) {
+  const [n, setN] = useState(0)
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true, margin: '-60px' })
+  useEffect(() => {
+    if (!inView) return
+    const num = parseFloat(to), steps = 72
+    let cur = 0
+    const t = setInterval(() => {
+      cur += num / steps
+      if (cur >= num) { setN(num); clearInterval(t) } else setN(Math.floor(cur))
+    }, 2000 / steps)
+    return () => clearInterval(t)
+  }, [inView, to])
+  return <span ref={ref}>{n}{suffix}</span>
+}
 
 
 const StatusBadge = ({ status }) => {
@@ -67,7 +92,7 @@ const ProjectCard = ({ project }) => (
     transition={{ type: 'spring', stiffness: 300, damping: 24 }}
     className="group overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:border-green-400 hover:shadow-[0_24px_60px_-25px_rgba(22,163,74,0.5)]"
   >
-   
+
     <div className="relative h-56 overflow-hidden">
       {project.type === 'video' ? (
         <video src={project.img} muted loop autoPlay playsInline className="h-full w-full object-cover" />
@@ -87,7 +112,7 @@ const ProjectCard = ({ project }) => (
         <StatusBadge status={project.status} />
       </span>
     </div>
-   
+
     <div className="p-6">
       <h3 className="text-xl font-bold text-gray-900">{project.title}</h3>
       {project.location && (
@@ -116,124 +141,100 @@ const Page = () => {
   return (
     <div className="min-h-screen bg-gray-100 text-gray-900">
 
-      {/* <section ref={heroRef} className="relative flex h-screen items-center justify-center overflow-hidden">
-      
-        <motion.div style={{ y: heroY, scale: heroScale }} className="absolute inset-0">
-          <img src="/hello.jpg" alt="" className="h-full w-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-b from-green-900/70 via-green-900/50 to-gray-100" />
-        </motion.div>
-
-
-
-        <motion.div style={{ opacity: heroOpacity }} className="relative z-10 px-6 text-center">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-            <div className="mx-auto mb-6 h-[2px] w-24 bg-gradient-to-r from-transparent via-green-300 to-transparent" />
-            <h1 className="text-5xl font-bold tracking-tight text-white md:text-7xl">
-              Our <span className="text-green-300">Portfolio</span>
-            </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-100 md:text-xl">
-              40+ projects delivered — farmhouses, villas, layouts, and more
-            </p>
-          </motion.div>
-        </motion.div>
-
-       
-        <motion.div
-          animate={{ y: [0, 12, 0] }}
-          transition={{ duration: 1.6, repeat: Infinity }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 text-sm uppercase tracking-[0.25em] text-gray-200"
-        >
-          Scroll
-        </motion.div>
-      </section> */}
-
       <section className="relative overflow-hidden bg-gradient-to-br from-[#021b12] via-[#052e1f] to-black py-28">
-                      <div className="absolute inset-0">
-                          <div className="absolute top-0 right-0 h-[500px] w-[500px] rounded-full bg-green-500/20 blur-3xl animate-pulse" />
-                          <div className="absolute bottom-0 left-0 h-[400px] w-[400px] rounded-full bg-emerald-400/10 blur-3xl animate-pulse delay-1000" />
-                      </div>
-      
-                      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
-                      <motion.div
-                          animate={{
-                              y: [0, -20, 0],
-                              rotate: [0, 5, 0],
-                          }}
-                          transition={{
-                              duration: 8,
-                              repeat: Infinity,
-                              ease: "easeInOut",
-                          }}
-                          className="absolute top-24 left-16 h-24 w-24 rounded-full border border-green-400/20"
-                      />
-      
-                      <motion.div
-                          animate={{
-                              y: [0, 30, 0],
-                              rotate: [0, -8, 0],
-                          }}
-                          transition={{
-                              duration: 10,
-                              repeat: Infinity,
-                              ease: "easeInOut",
-                          }}
-                          className="absolute bottom-20 right-20 h-36 w-36 rounded-full border border-emerald-500/20"
-                      />
-      
-                      <div className="max-w-7xl mx-auto px-4 relative z-10 text-center">
-                          <motion.h1
-                              initial={{ opacity: 0, y: 60 }}
-                              animate={{ opacity: 1, y: 0 }}
-                              transition={{ duration: 0.9 }}
-                              className="text-5xl md:text-7xl lg:text-8xl font-extrabold leading-tight"
-                          >
-                              <span className="text-white">
-                                 Our  &nbsp;
-                              </span>
-                              {/* <br /> */}
-                              <span className="bg-gradient-to-r from-green-300 via-emerald-400 to-green-600 bg-clip-text text-transparent">
-                                  Portfolio
-                              </span>
-                          </motion.h1>
-      
-      
-                          <motion.p
-                              initial={{ opacity: 0, y: 30 }}
-                              animate={{ opacity: 1, y: 0 }}
-                              transition={{ delay: 0.3, duration: 0.8 }}
-                              className="mt-8 text-gray-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed"
-                          >
-                              40+ projects delivered — farmhouses, villas, layouts, and more
-                          </motion.p>
-                      </div>
+        <div className="absolute inset-0">
+          <div className="absolute top-0 right-0 h-[500px] w-[500px] rounded-full bg-green-500/20 blur-3xl animate-pulse" />
+          <div className="absolute bottom-0 left-0 h-[400px] w-[400px] rounded-full bg-emerald-400/10 blur-3xl animate-pulse delay-1000" />
+        </div>
+
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
+        <motion.div
+          animate={{
+            y: [0, -20, 0],
+            rotate: [0, 5, 0],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute top-24 left-16 h-24 w-24 rounded-full border border-green-400/20"
+        />
+
+        <motion.div
+          animate={{
+            y: [0, 30, 0],
+            rotate: [0, -8, 0],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute bottom-20 right-20 h-36 w-36 rounded-full border border-emerald-500/20"
+        />
+
+        <div className="max-w-7xl mx-auto px-4 relative z-10 text-center">
+          <motion.h1
+            initial={{ opacity: 0, y: 60 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9 }}
+            className="text-5xl md:text-7xl lg:text-8xl font-extrabold leading-tight"
+          >
+            <span className="text-white">
+              Our  &nbsp;
+            </span>
+
+            <span className="bg-gradient-to-r from-green-300 via-emerald-400 to-green-600 bg-clip-text text-transparent">
+              Portfolio
+            </span>
+          </motion.h1>
+
+
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+            className="mt-8 text-gray-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed"
+          >
+            40+ projects delivered — farmhouses, villas, layouts, and more
+          </motion.p>
+        </div>
       </section>
 
-      
-      <section className="relative z-10 mx-auto -mt-20 max-w-6xl px-6">
+
+
+      <section className="relative overflow-hidden py-10">
+        <div className="absolute inset-0   bg-gray-50" />
+
         <motion.div
-          variants={stagger}
           initial="hidden"
-          whileInView="show"
+          whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-2 gap-5 md:grid-cols-4"
+          variants={stagger}
+          className="relative mx-auto grid max-w-6xl grid-cols-2 gap-6 px-6 md:grid-cols-4"
         >
           {stats.map((s) => (
             <motion.div
-              key={s.label}
-              variants={fadeUp}
-              whileHover={{ y: -6 }}
-              className="rounded-3xl border border-gray-200 bg-white p-8 text-center shadow-md"
+              key={s.l}
+              variants={cardAnim}
+              className="text-center"
             >
-              <p className="text-4xl font-bold text-green-600 md:text-5xl">{s.value}</p>
-              <p className="mt-2 text-sm text-gray-500">{s.label}</p>
+              <div className="text-4xl font-bold text-emerald-400 md:text-5xl lg:text-6xl">
+                <AnimCounter to={s.n} suffix={s.s} />
+              </div>
+
+              <div className="mt-2 text-[11px] uppercase tracking-[0.26em] text-black">
+                {s.l}
+              </div>
             </motion.div>
           ))}
         </motion.div>
       </section>
 
-      
+
       <section className="mx-auto max-w-7xl px-6 py-24">
-     
+
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -248,17 +249,16 @@ const Page = () => {
           </h2>
         </motion.div>
 
-      
+
         <div className="mb-12 flex flex-wrap justify-center gap-3">
           {filters.map((f) => (
             <button
               key={f}
               onClick={() => setActive(f)}
-              className={`flex items-center gap-2 rounded-full border px-5 py-2.5 text-sm font-semibold transition-all duration-300 ${
-                active === f
-                  ? 'border-green-600 bg-green-600 text-white shadow-lg shadow-green-600/30'
-                  : 'border-gray-300 bg-white text-gray-600 hover:border-green-400 hover:text-green-600'
-              }`}
+              className={`flex items-center gap-2 rounded-full border px-5 py-2.5 text-sm font-semibold transition-all duration-300 ${active === f
+                ? 'border-green-600 bg-green-600 text-white shadow-lg shadow-green-600/30'
+                : 'border-gray-300 bg-white text-gray-600 hover:border-green-400 hover:text-green-600'
+                }`}
             >
               {f}
               {active === f && f === 'All Projects' && <ArrowRight size={15} />}
@@ -266,7 +266,7 @@ const Page = () => {
           ))}
         </div>
 
-       
+
         <motion.div layout className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <AnimatePresence mode="popLayout">
             {filtered.map((p) => (
@@ -280,37 +280,55 @@ const Page = () => {
         )}
       </section>
 
-      
-      <section className="relative overflow-hidden bg-green-600 px-6 py-28">
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute left-1/4 top-0 h-72 w-72 rounded-full bg-green-400/40 blur-[100px]" />
-          <div className="absolute bottom-0 right-1/4 h-72 w-72 rounded-full bg-emerald-300/30 blur-[100px]" />
-        </div>
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
-          className="relative mx-auto max-w-3xl text-center"
-        >
-          <h3 className="text-3xl font-bold text-white md:text-4xl">Ready to Build Your Dream Home?</h3>
-          <p className="mx-auto mt-4 max-w-xl text-green-50">
-            Get a free consultation and site visit. We cover Bangalore, Hosur, Jowlagiri & Denkanikottai.
-          </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <a href="tel:8951639116" className="flex items-center gap-2 rounded-full bg-white px-7 py-3.5 font-semibold text-green-700 shadow-lg transition hover:scale-105">
-              <Phone size={18} /> Call Now
-            </a>
-            <a href="https://wa.me/918951639116" className="flex items-center gap-2 rounded-full border border-white/60 bg-white/10 px-7 py-3.5 font-semibold text-white backdrop-blur transition hover:bg-white hover:text-green-700">
-              <MessageCircle size={18} /> WhatsApp Us
-            </a>
-            <button className="flex items-center gap-2 rounded-full border border-white/60 bg-white/10 px-7 py-3.5 font-semibold text-white backdrop-blur transition hover:bg-white hover:text-green-700">
-              <Send size={18} /> Send Enquiry
-            </button>
+
+      <section className="mx-auto max-w-7xl px-6 pb-28 pt-8">
+        <div className="relative overflow-hidden rounded-[32px] border border-emerald-400/20 bg-gradient-to-br from-emerald-950 via-emerald-900 to-green-950 p-10 text-center shadow-2xl shadow-emerald-950/40 md:p-16">
+          <div className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-emerald-400/15 blur-3xl" />
+          <div className="pointer-events-none absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-green-300/10 blur-3xl" />
+          <div className="mb-5 inline-flex items-center rounded-full border border-emerald-400/20 bg-white/5 px-4 py-2 text-sm font-medium text-emerald-300 backdrop-blur-md">
+            🏡 Trusted Home Construction Experts
           </div>
-        </motion.div>
+          <h2 className="text-3xl font-bold tracking-tight text-white md:text-5xl">
+            Ready to Build Your Dream Home?
+          </h2>
+          <p className="mx-auto mt-5 max-w-3xl text-base leading-relaxed text-zinc-300 md:text-lg">
+            Get a free consultation and site visit from our expert team.
+            We proudly serve Bangalore, Hosur, Jowlagiri & Denkanikottai
+            with premium residential construction solutions.
+          </p>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+            <motion.a
+              href="tel:8951639116"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+              className="rounded-full bg-gradient-to-r from-emerald-400 to-green-500 px-8 py-4 text-sm font-semibold text-emerald-950 shadow-lg shadow-emerald-500/30 transition-all duration-300 hover:shadow-emerald-400/50"
+            >
+              📞 Call Now
+            </motion.a>
+            <motion.a
+              href="https://wa.me/918951639116"
+              target="_blank"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+              className="rounded-full border border-emerald-400/20 bg-white/5 px-8 py-4 text-sm font-semibold text-white backdrop-blur-xl transition-all duration-300 hover:border-emerald-400/50 hover:bg-white/10"
+            >
+              WhatsApp Us
+            </motion.a>
+
+            <motion.a
+              href="/contact#enquiry"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+              className="rounded-full border border-emerald-400/20 bg-white/5 px-8 py-4 text-sm font-semibold text-white backdrop-blur-xl transition-all duration-300 hover:border-emerald-400/50 hover:bg-white/10"
+            >
+              Send Enquiry
+            </motion.a>
+
+          </div>
+        </div>
       </section>
+
+
     </div>
   )
 }

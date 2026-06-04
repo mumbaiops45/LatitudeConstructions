@@ -55,7 +55,7 @@ export default function Whywe() {
             <div className="text-center mt-10">
                 <a
                     href="/services"
-                    className="inline-flex items-center gap-2 rounded-full border bg-gray-300 text-black border-white/10 px-8 py-3 text-sm hover:bg-white hover:border-emerald-400/40 hover:text-black transition"
+                    className="inline-flex items-center gap-2 rounded-full border bg-emerald-300 text-black border-white/10 px-8 py-3 text-sm hover:bg-emerald-400 hover:border-emerald-400/40 hover:text-black transition"
                 >
                     Explore All Services <span className="text-emerald-400">→</span>
                 </a>
@@ -70,7 +70,12 @@ function ServiceCard({ s, i, progress, total }) {
 
     const y = useTransform(progress, [start, end], [260, -10]);
     const scale = useTransform(progress, [start, end], [0.92, 1]);
-    const opacity = useTransform(progress, [start, end], [0, 1]);
+    // const opacity = useTransform(progress, [start, end], [0, 1]);
+    const opacity = useTransform(
+        progress,
+        [start, start + (1 / total) * 0.15],   
+        [0, 1]
+    );
 
     return (
         <motion.div
@@ -82,7 +87,7 @@ function ServiceCard({ s, i, progress, total }) {
             }}
             className="absolute w-full max-w-[1100px] px-6"
         >
-            <div className="relative bg-white text-black rounded-[30px] shadow-2xl overflow-hidden min-h-[420px]">
+            <div className="relative bg-white text-black rounded-[30px]  overflow-hidden min-h-[420px]">
                 <div className="h-[3px] w-full bg-gradient-to-r from-emerald-400 via-green-300 to-emerald-500" />
 
                 <div className="grid md:grid-cols-2 items-center">
@@ -115,8 +120,6 @@ function ServiceCard({ s, i, progress, total }) {
                         )}
                     </div>
                 </div>
-
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(16,185,129,0.07),transparent_60%)]" />
             </div>
         </motion.div>
     );

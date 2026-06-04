@@ -284,6 +284,7 @@ const Page = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
                 href="https://wa.me/918951639116"
+                 target="_blank"
                 className="rounded-full bg-emerald-500 px-8 py-3 font-semibold text-[#070A08] transition-colors hover:bg-emerald-400"
               >
                 WhatsApp
@@ -291,7 +292,7 @@ const Page = () => {
               <motion.a
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
-                href="tel:8951639116"
+                href="/contact#enquiry"
                 className="rounded-full bg-emerald-500 px-8 py-3 font-semibold text-[#070A08] transition-colors hover:bg-emerald-400"
               >
                 Send Enquiry

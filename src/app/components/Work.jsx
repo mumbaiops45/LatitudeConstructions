@@ -154,7 +154,7 @@ const Work = () => {
 
                     <div className="mt-16 text-center">
                         <a
-                            href="/projects"
+                            href="/portfolio"
                             className="group inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-8 py-4 text-sm font-medium text-gray-300 backdrop-blur-md transition-all duration-300 hover:border-green-400/30 hover:bg-green-500/10 hover:text-white"
                         >
                             View All Projects
