@@ -11,20 +11,17 @@ const Footer = () => {
   return (
     <footer className="relative overflow-hidden border-t border-white/10 bg-black text-zinc-300">
 
-     
       <div className="pointer-events-none absolute -top-24 -left-24 h-80 w-80 rounded-full bg-emerald-500/10 blur-[120px]" />
       <div className="pointer-events-none absolute -bottom-24 -right-24 h-80 w-80 rounded-full bg-green-500/10 blur-[120px]" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 py-20 lg:px-10">
 
-        
         <div className="grid grid-cols-1 gap-14 lg:grid-cols-12">
 
           
           <div className="lg:col-span-4">
 
             <div className="flex items-center gap-4">
-
               <div className="h-14 w-14 overflow-hidden rounded-xl border border-white/10 bg-white/5">
                 <img
                   src="/logo.jpeg"
@@ -41,7 +38,6 @@ const Footer = () => {
                   Brick by Brick, We Build Your Dream Home
                 </p>
               </div>
-
             </div>
 
             <p className="mt-6 max-w-md text-sm leading-7 text-zinc-400">
@@ -49,7 +45,6 @@ const Footer = () => {
               Hosur, Thally, Denkanikottai, Shoolagiri, Hoskote & Devanahalli since 2014.
             </p>
 
-            
             <div className="mt-8 flex items-center gap-4">
 
               <a
@@ -76,7 +71,6 @@ const Footer = () => {
             </div>
           </div>
 
-       
           <div className="lg:col-span-8 grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-3">
 
           
@@ -87,20 +81,27 @@ const Footer = () => {
               </h3>
 
               <ul className="space-y-3 text-sm">
-                {["Home", "About Us", "Services", "Packages & Pricing", "Portfolio", "Contact"].map((item) => (
-                  <li key={item}>
+                {[
+                  { name: "Home", href: "/" },
+                  { name: "About Us", href: "/about-us" },
+                  { name: "Services", href: "/services" },
+                  { name: "Packages & Pricing", href: "/packages" },
+                  { name: "Portfolio", href: "/portfolio" },
+                  { name: "Contact", href: "/contact" },
+                ].map((item) => (
+                  <li key={item.name}>
                     <a
-                      href="#"
+                      href={item.href}
                       className="inline-block text-zinc-400 transition hover:translate-x-1 hover:text-emerald-300"
                     >
-                      {item}
+                      {item.name}
                     </a>
                   </li>
                 ))}
               </ul>
             </div>
 
-          
+           
             <div>
               <h3 className="relative mb-6 inline-block text-lg font-medium text-white">
                 Services
@@ -118,7 +119,7 @@ const Footer = () => {
                 ].map((item) => (
                   <li key={item}>
                     <a
-                      href="#"
+                      href="/services"
                       className="inline-block text-zinc-400 transition hover:translate-x-1 hover:text-emerald-300"
                     >
                       {item}
@@ -128,7 +129,7 @@ const Footer = () => {
               </ul>
             </div>
 
-          
+         
             <div>
               <h3 className="relative mb-6 inline-block text-lg font-medium text-white">
                 Contact
@@ -163,7 +164,7 @@ const Footer = () => {
           </div>
         </div>
 
-        
+      
         <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs text-zinc-500 lg:flex-row">
 
           <p>
