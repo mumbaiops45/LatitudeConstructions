@@ -27,37 +27,37 @@ const Page = () => {
     };
 
     const handleSubmit = async (e) => {
-    e.preventDefault();
+        e.preventDefault();
 
-    try {
-        const response = await fetch("https://formsubmit.co/ajax/latitudeconstructions080@gmail.com", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(formData),
-        });
+        try {
+            const response = await fetch("https://formsubmit.co/ajax/latitudeconstructions080@gmail.com", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+            });
 
-        const data = await response.json();
+            const data = await response.json();
 
-       
-        setFormData({
-            fullName: "",
-            phone: "",
-            email: "",
-            service: "",
-            location: "",
-            budget: "",
-            message: "",
-        });
 
-        alert("Enquiry submitted successfully!");
+            setFormData({
+                fullName: "",
+                phone: "",
+                email: "",
+                service: "",
+                location: "",
+                budget: "",
+                message: "",
+            });
 
-    } catch (error) {
-        console.error("Error submitting form:", error);
-        alert("Something went wrong!");
-    }
-};
+            alert("Enquiry submitted successfully!");
+
+        } catch (error) {
+            console.error("Error submitting form:", error);
+            alert("Something went wrong!");
+        }
+    };
 
 
 
@@ -349,38 +349,71 @@ const Page = () => {
                             </div>
                         </div>
 
+                        <div
+                            className="reveal lift relative overflow-hidden rounded-2xl sm:rounded-3xl bg-gradient-to-br from-green-600 via-green-700 to-green-900 text-white p-5 sm:p-7 md:p-8 flex flex-col justify-center gap-5 shadow-xl shadow-green-900/30"
+                            style={{ transitionDelay: "160ms" }}
+                        >
+                            
+                            <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-white/10 blur-3xl" />
 
+                            <p className="relative text-[11px] sm:text-xs uppercase tracking-[0.25em] text-green-100">
+                                Get in touch
+                            </p>
 
-                        <div className="reveal lift relative overflow-hidden bg-gradient-to-br from-green-600 to-green-800 text-white rounded-2xl p-7 flex flex-col justify-center gap-3 shadow-lg shadow-green-700/30" style={{ transitionDelay: '160ms' }}>
-                            <div className="pointer-events-none  absolute -right-10 -top-10 w-40 h-40 rounded-full bg-white/10 blur-2xl" />
-                            <p className="relative text-xs uppercase tracking-[0.25em] text-green-100 mb-1">Get in touch</p>
+                          
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
 
-                            <div className="flex gap-4">
                                 <a
                                     href="https://wa.me/918951639116"
-                                    target='_blank'
-                                    className="group relative flex flex-1 items-center justify-between border border-white/25 rounded-xl px-5 py-3.5 hover:bg-white hover:text-green-700 transition-all duration-300"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="group flex items-center justify-between rounded-xl border border-white/20 px-4 sm:px-5 py-4 sm:py-3.5 backdrop-blur-sm hover:bg-white hover:text-green-700 transition-all duration-300"
                                 >
-                                    <span className="flex items-center gap-2 font-semibold text-sm tracking-wide">
-                                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                    <span className="flex items-center gap-2 font-semibold text-sm sm:text-[15px]">
+                                        <svg
+                                            width="18"
+                                            height="18"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            strokeWidth="2"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                        >
                                             <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
                                         </svg>
                                         Chat on WhatsApp
                                     </span>
-                                    <span className="group-hover:translate-x-1 transition-transform">→</span>
+
+                                    <span className="transition-transform duration-300 group-hover:translate-x-1">
+                                        →
+                                    </span>
                                 </a>
 
+                                
                                 <a
                                     href="tel:+918951639116"
-                                    className="group relative flex flex-1 items-center justify-between border border-white/25 rounded-xl px-5 py-3.5 hover:bg-white hover:text-green-700 transition-all duration-300"
+                                    className="group flex items-center justify-between rounded-xl border border-white/20 px-4 sm:px-5 py-4 sm:py-3.5 backdrop-blur-sm hover:bg-white hover:text-green-700 transition-all duration-300"
                                 >
-                                    <span className="flex items-center gap-2 font-semibold text-sm tracking-wide">
-                                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                    <span className="flex items-center gap-2 font-semibold text-sm sm:text-[15px]">
+                                        <svg
+                                            width="18"
+                                            height="18"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            strokeWidth="2"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                        >
                                             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
                                         </svg>
                                         Call Now
                                     </span>
-                                    <span className="group-hover:translate-x-1 transition-transform">→</span>
+
+                                    <span className="transition-transform duration-300 group-hover:translate-x-1">
+                                        →
+                                    </span>
                                 </a>
                             </div>
                         </div>
@@ -389,51 +422,78 @@ const Page = () => {
             </section>
 
 
-            <section className="mx-auto max-w-7xl px-6 pb-28 pt-8">
-                <div className="relative overflow-hidden rounded-[32px] border border-emerald-400/20 bg-gradient-to-br from-emerald-950 via-emerald-900 to-green-950 p-10 text-center shadow-2xl shadow-emerald-950/40 md:p-16">
-                    <div className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-emerald-400/15 blur-3xl" />
-                    <div className="pointer-events-none absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-green-300/10 blur-3xl" />
-                    <div className="mb-5 inline-flex items-center rounded-full border border-emerald-400/20 bg-white/5 px-4 py-2 text-sm font-medium text-emerald-300 backdrop-blur-md">
-                        🏡 Trusted Home Construction Experts
-                    </div>
-                    <h2 className="text-3xl font-bold tracking-tight text-white md:text-5xl">
-                        Ready to Build Your Dream Home?
+            <section className="relative px-6 py-24 overflow-hidden text-white">
+                <div className="absolute inset-0 bg-gradient-to-b from-[#040804] via-[#07140b] to-[#030503]" />
+                <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-emerald-500/20 blur-[140px] rounded-full" />
+                <div className="absolute bottom-[-200px] right-[-100px] w-[600px] h-[600px] bg-yellow-400/10 blur-[160px] rounded-full" />
+                <div className="absolute top-[30%] left-[-120px] w-[500px] h-[500px] bg-green-900/30 blur-[150px] rounded-full" />
+
+                <div
+                    className="absolute inset-0 opacity-[0.06]"
+                    style={{
+                        backgroundImage:
+                            "linear-gradient(rgba(34,197,94,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(34,197,94,0.3) 1px, transparent 1px)",
+                        backgroundSize: "90px 90px",
+                    }}
+                />
+
+                <div className="absolute inset-0 bg-radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.6) 100%)" />
+                <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.7 }}
+                    className="relative z-10 max-w-3xl mx-auto text-center"
+                >
+
+                    <span className="text-xs tracking-[0.4em] uppercase text-emerald-300/80">
+                        Get Started
+                    </span>
+
+                    <h2 className="mt-5 text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight">
+                        Ready to Build Your <br />
+                        <span className="bg-gradient-to-r from-emerald-400 via-green-300 to-yellow-300 bg-clip-text text-transparent">
+                            Dream Farmhouse?
+                        </span>
                     </h2>
-                    <p className="mx-auto mt-5 max-w-3xl text-base leading-relaxed text-zinc-300 md:text-lg">
-                        Get a free consultation and site visit from our expert team.
-                        We proudly serve Bangalore, Hosur, Jowlagiri & Denkanikottai
-                        with premium residential construction solutions.
+
+                    <p className="mt-6 text-zinc-400 text-base sm:text-lg leading-relaxed">
+                        Get a free consultation and site visit. <br />
+                        We cover Bangalore, Hosur, Jowlagiri & Denkanikottai.
                     </p>
-                    <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-                        <motion.a
-                            href="tel:8951639116"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.97 }}
-                            className="rounded-full bg-gradient-to-r from-emerald-400 to-green-500 px-8 py-4 text-sm font-semibold text-emerald-950 shadow-lg shadow-emerald-500/30 transition-all duration-300 hover:shadow-emerald-400/50"
+
+
+                    <div className="mt-12 flex flex-col sm:flex-row justify-center  gap-4 sm:gap-5">
+                        <a
+                            href="tel:+918951639116"
+                            target="_blank"
+
+                            className="w-full sm:w-auto flex items-center justify-center gap-2 px-10 py-5 sm:px-8 sm:py-4 rounded-full text-white text-base sm:text-sm font-medium bg-gradient-to-r from-emerald-700 via-green-600 to-emerald-500 shadow-lg shadow-emerald-900/30 hover:scale-105 transition-all duration-300"
+
                         >
                             📞 Call Now
-                        </motion.a>
-                        <motion.a
+                        </a>
+
+
+                        <a
                             href="https://wa.me/918951639116"
                             target="_blank"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.97 }}
-                            className="rounded-full border border-emerald-400/20 bg-white/5 px-8 py-4 text-sm font-semibold text-white backdrop-blur-xl transition-all duration-300 hover:border-emerald-400/50 hover:bg-white/10"
+                            className="w-full sm:w-auto flex items-center justify-center gap-2 px-10 py-5 sm:px-8 sm:py-4 rounded-full text-white text-base sm:text-sm font-medium bg-gradient-to-r from-emerald-700 via-green-600 to-emerald-500 shadow-lg shadow-emerald-900/30 hover:scale-105 transition-all duration-300"
                         >
-                            WhatsApp Us
-                        </motion.a>
+                            💬 WhatsApp Us
+                        </a>
 
-                        <motion.a
+
+                        <a
                             href="/contact#enquiry"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.97 }}
-                            className="rounded-full border border-emerald-400/20 bg-white/5 px-8 py-4 text-sm font-semibold text-white backdrop-blur-xl transition-all duration-300 hover:border-emerald-400/50 hover:bg-white/10"
+                            className="w-full sm:w-auto flex items-center justify-center gap-2 px-10 py-5 sm:px-8 sm:py-4 rounded-full text-white text-base sm:text-sm font-medium bg-gradient-to-r from-emerald-700 via-green-600 to-emerald-500 shadow-lg shadow-emerald-900/30 hover:scale-105 transition-all duration-300"
                         >
                             Send Enquiry
-                        </motion.a>
+                        </a>
 
                     </div>
-                </div>
+
+                </motion.div>
             </section>
 
 

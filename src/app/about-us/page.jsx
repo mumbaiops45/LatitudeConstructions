@@ -258,49 +258,83 @@ const Page = () => {
       </section>  
 
 
-      <section className="mx-auto max-w-7xl px-6 pb-28 pt-10">
-        <Reveal>
-          <div className="relative overflow-hidden rounded-3xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/10 to-transparent p-12 text-center backdrop-blur-xl">
-            <div className="pointer-events-none absolute left-1/2 top-0 h-[400px] w-[400px] -translate-x-1/2 rounded-full bg-emerald-500/20 blur-[120px]" />
+      
 
-            <h2 className="relative z-10 text-3xl font-bold md:text-4xl">
-              Ready to Build Your Dream Home?
-            </h2>
-            <p className="relative z-10 mx-auto mt-4 max-w-xl text-black">
-              Get a free consultation and site visit. We cover Bangalore, Hosur,
-              Jowlagiri & Denkanikottai.
-            </p>
+       <section className="relative px-6 py-24 overflow-hidden text-white">
+                <div className="absolute inset-0 bg-gradient-to-b from-[#040804] via-[#07140b] to-[#030503]" />
+                <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-emerald-500/20 blur-[140px] rounded-full" />
+                <div className="absolute bottom-[-200px] right-[-100px] w-[600px] h-[600px] bg-yellow-400/10 blur-[160px] rounded-full" />
+                <div className="absolute top-[30%] left-[-120px] w-[500px] h-[500px] bg-green-900/30 blur-[150px] rounded-full" />
 
-            <div className="relative z-10 mt-8 flex flex-wrap items-center justify-center gap-4">
-              <motion.a
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.97 }}
-                href="tel:8951639116"
-                className="rounded-full bg-emerald-500 px-8 py-3 font-semibold text-[#070A08] transition-colors hover:bg-emerald-400"
-              >
-                Call Now
-              </motion.a>
-              <motion.a
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.97 }}
-                href="https://wa.me/918951639116"
-                 target="_blank"
-                className="rounded-full bg-emerald-500 px-8 py-3 font-semibold text-[#070A08] transition-colors hover:bg-emerald-400"
-              >
-                WhatsApp
-              </motion.a>
-              <motion.a
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.97 }}
-                href="/contact#enquiry"
-                className="rounded-full bg-emerald-500 px-8 py-3 font-semibold text-[#070A08] transition-colors hover:bg-emerald-400"
-              >
-                Send Enquiry
-              </motion.a>
-            </div>
-          </div>
-        </Reveal>
-      </section>
+                <div
+                    className="absolute inset-0 opacity-[0.06]"
+                    style={{
+                        backgroundImage:
+                            "linear-gradient(rgba(34,197,94,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(34,197,94,0.3) 1px, transparent 1px)",
+                        backgroundSize: "90px 90px",
+                    }}
+                />
+
+                <div className="absolute inset-0 bg-radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.6) 100%)" />
+                <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.7 }}
+                    className="relative z-10 max-w-3xl mx-auto text-center"
+                >
+
+                    <span className="text-xs tracking-[0.4em] uppercase text-emerald-300/80">
+                        Get Started
+                    </span>
+
+                    <h2 className="mt-5 text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight">
+                        Ready to Build Your <br />
+                        <span className="bg-gradient-to-r from-emerald-400 via-green-300 to-yellow-300 bg-clip-text text-transparent">
+                            Dream Farmhouse?
+                        </span>
+                    </h2>
+
+                    <p className="mt-6 text-zinc-400 text-base sm:text-lg leading-relaxed">
+                        Get a free consultation and site visit. <br />
+                        We cover Bangalore, Hosur, Jowlagiri & Denkanikottai.
+                    </p>
+
+
+                    <div className="mt-12 flex flex-col sm:flex-row justify-center  gap-4 sm:gap-5">
+                        <a
+                            href="tel:+918951639116"
+                            target="_blank"
+                            
+                                    className="w-full sm:w-auto flex items-center justify-center gap-2 px-10 py-5 sm:px-8 sm:py-4 rounded-full text-white text-base sm:text-sm font-medium bg-gradient-to-r from-emerald-700 via-green-600 to-emerald-500 shadow-lg shadow-emerald-900/30 hover:scale-105 transition-all duration-300"
+
+                        >
+                            📞 Call Now
+                        </a>
+
+
+                        <a
+                            href="https://wa.me/918951639116"
+                            target="_blank"
+                                    className="w-full sm:w-auto flex items-center justify-center gap-2 px-10 py-5 sm:px-8 sm:py-4 rounded-full text-white text-base sm:text-sm font-medium bg-gradient-to-r from-emerald-700 via-green-600 to-emerald-500 shadow-lg shadow-emerald-900/30 hover:scale-105 transition-all duration-300"
+                        >
+                            💬 WhatsApp Us
+                        </a>
+
+
+                        <a
+                            href="/contact#enquiry"
+                                    className="w-full sm:w-auto flex items-center justify-center gap-2 px-10 py-5 sm:px-8 sm:py-4 rounded-full text-white text-base sm:text-sm font-medium bg-gradient-to-r from-emerald-700 via-green-600 to-emerald-500 shadow-lg shadow-emerald-900/30 hover:scale-105 transition-all duration-300"
+                        >
+                            Send Enquiry
+                        </a>
+
+                    </div>
+
+                </motion.div>
+            </section>
+
+
     </div>
   );
 };

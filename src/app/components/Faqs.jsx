@@ -75,13 +75,13 @@ export default function FAQSection() {
                     </p>
 
 
-                    <div className="mt-12 flex flex-wrap justify-center gap-5">
-
-
+                    <div className="mt-12 flex flex-col sm:flex-row justify-center  gap-4 sm:gap-5">
                         <a
                             href="tel:+918951639116"
                             target="_blank"
-                            className="relative inline-flex items-center gap-2 px-8 py-4 rounded-full   text-white text-sm font-medium    bg-gradient-to-r from-emerald-700 via-green-600 to-emerald-500  shadow-lg shadow-emerald-900/30   hover:scale-[1.05] transition-all duration-300"
+                            
+                                    className="w-full sm:w-auto flex items-center justify-center gap-2 px-10 py-5 sm:px-8 sm:py-4 rounded-full text-white text-base sm:text-sm font-medium bg-gradient-to-r from-emerald-700 via-green-600 to-emerald-500 shadow-lg shadow-emerald-900/30 hover:scale-105 transition-all duration-300"
+
                         >
                             📞 Call Now
                         </a>
@@ -90,8 +90,7 @@ export default function FAQSection() {
                         <a
                             href="https://wa.me/918951639116"
                             target="_blank"
-                            className="relative inline-flex items-center gap-2 px-8 py-4 rounded-full
-                text-emerald-200 text-sm font-medium bg-gradient-to-r from-emerald-700 via-green-600 to-emerald-500  hover:bg-emerald-900/30  hover:border-emerald-400/50  transition-all duration-300"
+                                    className="w-full sm:w-auto flex items-center justify-center gap-2 px-10 py-5 sm:px-8 sm:py-4 rounded-full text-white text-base sm:text-sm font-medium bg-gradient-to-r from-emerald-700 via-green-600 to-emerald-500 shadow-lg shadow-emerald-900/30 hover:scale-105 transition-all duration-300"
                         >
                             💬 WhatsApp Us
                         </a>
@@ -99,8 +98,7 @@ export default function FAQSection() {
 
                         <a
                             href="/contact#enquiry"
-                            className="relative inline-flex items-center gap-2 px-8 py-4 rounded-full
-                text-zinc-300 text-sm font-medium   bg-gradient-to-r from-emerald-700 via-green-600 to-emerald-500 border border-zinc-600/40 hover:border-emerald-400/40  hover:text-white transition-all duration-300"
+                                    className="w-full sm:w-auto flex items-center justify-center gap-2 px-10 py-5 sm:px-8 sm:py-4 rounded-full text-white text-base sm:text-sm font-medium bg-gradient-to-r from-emerald-700 via-green-600 to-emerald-500 shadow-lg shadow-emerald-900/30 hover:scale-105 transition-all duration-300"
                         >
                             Send Enquiry
                         </a>
@@ -109,6 +107,7 @@ export default function FAQSection() {
 
                 </motion.div>
             </section>
+
 
         </>
     );

@@ -250,109 +250,92 @@ const Work = () => {
             </section>
 
 
+            <section className="relative overflow-hidden py-16 md:py-24 bg-[#070A08] text-white">
+                <div className="pointer-events-none absolute left-1/2 top-0 h-[300px] w-[300px] -translate-x-1/2 rounded-full bg-emerald-500/10 blur-[140px] sm:h-[500px] sm:w-[500px]" />
 
-            <section className="relative overflow-hidden py-24 bg-[#070A08] text-white">
-                <div className="absolute left-1/2 top-0 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-emerald-500/10 blur-[140px]" />
-
-                <div className="relative mx-auto max-w-6xl px-6 text-center">
-
-                    <div className="inline-flex items-center rounded-full border border-emerald-500/20 bg-emerald-500/10 px-5 py-2 backdrop-blur-sm">
-                        <span className="text-xs font-semibold uppercase tracking-[0.3em] text-emerald-400">
+                <div className="relative mx-auto max-w-6xl px-5 text-center sm:px-6">
+                    <div className="inline-flex items-center rounded-full border border-emerald-500/20 bg-emerald-500/10 px-4 py-2 backdrop-blur-sm sm:px-5">
+                        <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-emerald-400 sm:text-xs sm:tracking-[0.3em]">
                             Packages & Pricing
                         </span>
                     </div>
 
-                    <h2 className="mx-auto mt-7 max-w-4xl text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
+                    <h2 className="mx-auto mt-6 max-w-4xl text-3xl font-bold leading-tight sm:mt-7 sm:text-4xl md:text-5xl lg:text-6xl">
                         Farmhouse Construction Cost in{" "}
                         <span className="bg-gradient-to-r from-emerald-400 to-green-300 bg-clip-text text-transparent">
                             Bangalore & Hosur
                         </span>
                     </h2>
 
-                    <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-zinc-400 md:text-xl">
+                    <p className="mx-auto mt-5 max-w-3xl text-base leading-relaxed text-zinc-400 sm:mt-6 sm:text-lg md:text-xl">
                         Transparent pricing from{" "}
                         <span className="font-semibold text-emerald-400">₹2,100/sqft</span>.
                         Minimum 1,200 sq.ft. No hidden charges. Premium materials. Zero surprises.
                     </p>
 
-                    <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-5 py-2">
-                        <span className="text-sm text-emerald-300 font-medium">
+                    <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-4 py-2 sm:px-5">
+                        <span className="text-xs font-medium text-emerald-300 sm:text-sm">
                             Starting from ₹2,100/sqft
                         </span>
                     </div>
                 </div>
 
-                <div className="mx-auto mt-[80px] max-w-[1100px] px-[24px]">
-                    <div className="grid place-items-center gap-[32px] lg:grid-cols-2">
+                <div className="mx-auto mt-12 max-w-[1100px] px-5 sm:mt-16 sm:px-6 lg:mt-20">
+                    <div className="grid justify-items-center gap-8 lg:grid-cols-2 lg:items-stretch">
+                       
                         <motion.div
                             initial={{ opacity: 0, x: -40 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
                             className="
-        group
-        relative
-        flex
-        min-h-[760px]
-        w-[500px]
-        flex-col
-        overflow-hidden
-        rounded-[32px]
-        border
-        border-zinc-200
-        bg-gray-100
-        px-[40px]
-        py-[40px]
-        shadow-[0_10px_40px_rgba(0,0,0,0.08)]
-        transition-all
-        duration-500
-        hover:-translate-y-2
-        hover:border-emerald-400
-        hover:shadow-[0_20px_60px_rgba(0,0,0,0.12)]
-      "
+          group relative flex w-full max-w-[500px] flex-col
+          overflow-hidden rounded-3xl border border-zinc-200 bg-gray-100
+          px-6 py-8 shadow-[0_10px_40px_rgba(0,0,0,0.08)]
+          transition-all duration-500
+          hover:-translate-y-2 hover:border-emerald-400 hover:shadow-[0_20px_60px_rgba(0,0,0,0.12)]
+          sm:rounded-[32px] sm:px-8 sm:py-10 md:px-10
+        "
                         >
                             <div className="absolute left-0 top-0 h-1 w-full bg-gradient-to-r from-emerald-500 via-emerald-400 to-teal-400" />
 
                             <div className="flex items-center justify-between">
-                                <span className="text-xs font-semibold uppercase tracking-[0.3em] text-zinc-500">
+                                <span className="text-xs font-semibold uppercase tracking-[0.25em] text-zinc-500 sm:tracking-[0.3em]">
                                     Standard
                                 </span>
-
-                                <span className="rounded-full bg-emerald-100 px-4 py-1.5 text-xs font-semibold text-emerald-700">
+                                <span className="rounded-full bg-emerald-100 px-3 py-1.5 text-[10px] font-semibold text-emerald-700 sm:px-4 sm:text-xs">
                                     Value Choice
                                 </span>
                             </div>
 
-                            <h3 className="mt-[24px] text-3xl font-bold text-zinc-900">
+                            <h3 className="mt-6 text-2xl font-bold text-zinc-900 sm:text-3xl">
                                 Standard Package
                             </h3>
 
-                            <p className="mt-[12px] text-sm leading-relaxed text-zinc-600">
+                            <p className="mt-3 text-sm leading-relaxed text-zinc-600">
                                 A balanced package designed for homeowners seeking quality
                                 construction with durable materials and modern finishes.
                             </p>
 
-                            <div className="mt-[32px]">
+                            <div className="mt-8">
                                 <div className="flex items-end gap-2">
-                                    <span className="text-4xl font-bold tracking-tight text-zinc-900">
+                                    <span className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl">
                                         ₹2,100
                                     </span>
-
                                     <span className="pb-2 text-zinc-500">/ sq.ft</span>
                                 </div>
-
                                 <p className="mt-2 text-sm text-zinc-500">
                                     Typical range ₹2,100 – ₹2,300
                                 </p>
                             </div>
 
-                            <div className="my-[32px] h-px bg-gradient-to-r from-transparent via-zinc-300 to-transparent" />
+                            <div className="my-8 h-px bg-gradient-to-r from-transparent via-zinc-300 to-transparent" />
 
-                            <div className="mb-[20px] text-xs font-semibold uppercase tracking-[0.3em] text-zinc-500">
+                            <div className="mb-5 text-xs font-semibold uppercase tracking-[0.25em] text-zinc-500 sm:tracking-[0.3em]">
                                 What's Included
                             </div>
 
-                            <ul className="flex-1 space-y-[20px]">
+                            <ul className="flex-1 space-y-4 sm:space-y-5">
                                 {[
                                     "10 ft ceiling height",
                                     "Vitrified tile flooring",
@@ -361,13 +344,9 @@ const Work = () => {
                                     "Asian Tractor Emulsion paint",
                                     "Weekly progress updates",
                                 ].map((item) => (
-                                    <li
-                                        key={item}
-                                        className="flex items-start gap-[16px] text-zinc-700"
-                                    >
-                                        <div className="mt-1.5 h-[10px] w-[10px] rounded-full bg-emerald-500 shadow-sm shadow-emerald-500/50" />
-
-                                        <span className="text-[15px] leading-relaxed">{item}</span>
+                                    <li key={item} className="flex items-start gap-3 text-zinc-700 sm:gap-4">
+                                        <div className="mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full bg-emerald-500 shadow-sm shadow-emerald-500/50" />
+                                        <span className="text-sm leading-relaxed sm:text-[15px]">{item}</span>
                                     </li>
                                 ))}
                             </ul>
@@ -375,109 +354,72 @@ const Work = () => {
                             <a
                                 href="/contact"
                                 className="
-          mt-[40px]
-          flex
-          h-[56px]
-          items-center
-          justify-center
-          rounded-2xl
-          bg-zinc-900
-          text-sm
-          font-semibold
-          text-white
-          transition-all
-          duration-300
-          hover:bg-emerald-600
-          hover:shadow-lg
-          hover:shadow-emerald-500/20
-        "
+            mt-10 flex h-14 items-center justify-center rounded-2xl
+            bg-zinc-900 text-sm font-semibold text-white
+            transition-all duration-300
+            hover:bg-emerald-600 hover:shadow-lg hover:shadow-emerald-500/20
+          "
                             >
                                 Get Free Quote
                             </a>
                         </motion.div>
 
-                        {/* Premium Package */}
                         <motion.div
                             initial={{ opacity: 0, x: 40 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
                             className="
-        group
-        relative
-        flex
-        min-h-[760px]
-        w-[500px]
-        flex-col
-        overflow-hidden
-        rounded-[32px]
-        border
-        border-emerald-500/30
-        bg-gradient-to-br
-        from-[#0C1A14]
-        via-[#0A1410]
-        to-[#070B09]
-        px-[40px]
-        py-[40px]
-        text-white
-        shadow-[0_0_80px_rgba(16,185,129,0.15)]
-        backdrop-blur-xl
-        transition-all
-        duration-500
-        hover:-translate-y-2
-      "
+          group relative flex w-full max-w-[500px] flex-col
+          overflow-hidden rounded-3xl border border-emerald-500/30
+          bg-gradient-to-br from-[#0C1A14] via-[#0A1410] to-[#070B09]
+          px-6 py-8 text-white shadow-[0_0_80px_rgba(16,185,129,0.15)]
+          backdrop-blur-xl transition-all duration-500 hover:-translate-y-2
+          sm:rounded-[32px] sm:px-8 sm:py-10 md:px-10
+        "
                         >
                             <div className="absolute inset-0 bg-emerald-500/5" />
-                            <div className="absolute -top-24 right-0 h-60 w-60 rounded-full bg-emerald-500/10 blur-3xl" />
-                            <div className="absolute -bottom-24 left-0 h-60 w-60 rounded-full bg-green-500/10 blur-3xl" />
-
-                            {/* <div className="absolute -top-5 left-1/2 -translate-x-1/2">
-                                <div className="rounded-full bg-gradient-to-r from-emerald-400 to-green-300 px-6 py-2 text-xs font-bold uppercase tracking-widest text-black shadow-lg">
-                                    Recommended
-                                </div>
-                            </div> */}
+                            <div className="pointer-events-none absolute -top-24 right-0 h-60 w-60 rounded-full bg-emerald-500/10 blur-3xl" />
+                            <div className="pointer-events-none absolute -bottom-24 left-0 h-60 w-60 rounded-full bg-green-500/10 blur-3xl" />
 
                             <div className="relative flex h-full flex-col">
                                 <div className="flex items-center justify-between">
-                                    <span className="text-xs font-semibold uppercase tracking-[0.3em] text-emerald-400">
+                                    <span className="text-xs font-semibold uppercase tracking-[0.25em] text-emerald-400 sm:tracking-[0.3em]">
                                         Premium
                                     </span>
-
-                                    <span className="rounded-full bg-emerald-500/10 px-4 py-1.5 text-xs font-medium text-emerald-300">
+                                    <span className="rounded-full bg-emerald-500/10 px-3 py-1.5 text-[10px] font-medium text-emerald-300 sm:px-4 sm:text-xs">
                                         Most Popular
                                     </span>
                                 </div>
 
-                                <h3 className="mt-[24px] text-3xl font-bold">
+                                <h3 className="mt-6 text-2xl font-bold sm:text-3xl">
                                     Premium Package
                                 </h3>
 
-                                <p className="mt-[12px] text-sm leading-relaxed text-zinc-400">
+                                <p className="mt-3 text-sm leading-relaxed text-zinc-400">
                                     Luxury-grade materials, superior craftsmanship, premium fittings
                                     and complete architectural support for your dream home.
                                 </p>
 
-                                <div className="mt-[32px]">
+                                <div className="mt-8">
                                     <div className="flex items-end gap-2">
-                                        <span className="text-4xl font-bold tracking-tight text-emerald-400">
+                                        <span className="text-3xl font-bold tracking-tight text-emerald-400 sm:text-4xl">
                                             ₹2,500
                                         </span>
-
                                         <span className="pb-2 text-zinc-400">/ sq.ft</span>
                                     </div>
-
                                     <p className="mt-2 text-sm text-zinc-400">
                                         High-end finishes & architectural upgrades included
                                     </p>
                                 </div>
 
-                                <div className="my-[32px] h-px bg-emerald-500/20" />
+                                <div className="my-8 h-px bg-emerald-500/20" />
 
-                                <div className="mb-[20px] text-xs font-semibold uppercase tracking-[0.3em] text-emerald-400">
+                                <div className="mb-5 text-xs font-semibold uppercase tracking-[0.25em] text-emerald-400 sm:tracking-[0.3em]">
                                     Premium Inclusions
                                 </div>
 
-                                <ul className="flex-1 space-y-[20px]">
+                                <ul className="flex-1 space-y-4 sm:space-y-5">
                                     {[
                                         "11 ft ceiling height",
                                         "GVT tiles up to ₹65/sqft",
@@ -486,27 +428,13 @@ const Work = () => {
                                         "Full architectural service",
                                         "Premium electrical wiring setup",
                                     ].map((item) => (
-                                        <li
-                                            key={item}
-                                            className="flex items-start gap-[16px] text-zinc-200"
-                                        >
-                                            <div className="flex h-6 w-6 items-center justify-center rounded-full bg-emerald-500/15">
-                                                <svg
-                                                    className="h-4 w-4 text-emerald-400"
-                                                    fill="none"
-                                                    stroke="currentColor"
-                                                    viewBox="0 0 24 24"
-                                                >
-                                                    <path
-                                                        strokeLinecap="round"
-                                                        strokeLinejoin="round"
-                                                        strokeWidth="3"
-                                                        d="M5 13l4 4L19 7"
-                                                    />
+                                        <li key={item} className="flex items-start gap-3 text-zinc-200 sm:gap-4">
+                                            <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500/15">
+                                                <svg className="h-4 w-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
                                                 </svg>
                                             </div>
-
-                                            <span className="text-[15px] leading-relaxed">{item}</span>
+                                            <span className="text-sm leading-relaxed sm:text-[15px]">{item}</span>
                                         </li>
                                     ))}
                                 </ul>
@@ -514,23 +442,11 @@ const Work = () => {
                                 <a
                                     href="/contact"
                                     className="
-            mt-[40px]
-            flex
-            h-[56px]
-            items-center
-            justify-center
-            rounded-2xl
-            bg-gradient-to-r
-            from-emerald-400
-            to-green-500
-            text-sm
-            font-bold
-            text-black
-            shadow-[0_20px_40px_rgba(16,185,129,0.35)]
-            transition-all
-            duration-300
-            hover:scale-[1.02]
-          "
+              mt-10 flex h-14 items-center justify-center rounded-2xl
+              bg-gradient-to-r from-emerald-400 to-green-500
+              text-sm font-bold text-black shadow-[0_20px_40px_rgba(16,185,129,0.35)]
+              transition-all duration-300 hover:scale-[1.02]
+            "
                                 >
                                     Get Free Quote
                                 </a>
@@ -538,8 +454,6 @@ const Work = () => {
                         </motion.div>
                     </div>
                 </div>
-
-
             </section>
 
         </div>
