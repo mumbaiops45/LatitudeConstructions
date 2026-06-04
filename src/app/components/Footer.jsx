@@ -22,7 +22,7 @@ const Footer = () => {
           <div className="lg:col-span-4">
 
             <div className="flex items-center gap-4">
-              <div className="h-14 w-14 overflow-hidden rounded-xl border border-white/10 bg-white/5">
+              <div className="h-24 w-34 overflow-hidden rounded-xl border border-white/10 bg-white/5">
                 <img
                   src="/logo.jpeg"
                   alt="Latitude Constructions"
@@ -30,15 +30,16 @@ const Footer = () => {
                 />
               </div>
 
-              <div>
+              
+            </div>
+            <div>
                 <h2 className="text-xl font-semibold text-white">
                   Latitude Constructions
                 </h2>
-                <p className="mt-1 text-sm text-zinc-400">
+                <p className="mt-1 text-md text-zinc-400">
                   Brick by Brick, We Build Your Dream Home
                 </p>
               </div>
-            </div>
 
             <p className="mt-6 max-w-md text-sm leading-7 text-zinc-400">
               Farmhouse construction specialists serving Bangalore outskirts,
@@ -49,6 +50,8 @@ const Footer = () => {
 
               <a
                 href="https://wa.me/918951639116"
+                target="_blank"
+                 rel="noopener noreferrer"
                 className="flex h-11 w-11 items-center justify-center rounded-full bg-white/5 transition hover:scale-110 hover:bg-emerald-500/20"
               >
                 <FaWhatsapp className="text-emerald-400" />
