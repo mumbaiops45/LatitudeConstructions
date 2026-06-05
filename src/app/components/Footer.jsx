@@ -186,7 +186,7 @@ const Footer = () => {
               rel="noreferrer"
               className="transition hover:text-emerald-400"
             >
-              Developed by Nakshatra Namah Creations
+              Developed by Nakshatra Namaha Creations
             </a>
 
           </div>
