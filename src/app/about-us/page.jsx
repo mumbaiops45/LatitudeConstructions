@@ -146,7 +146,7 @@ const Page = () => {
               <div className="absolute -inset-4 rounded-3xl bg-emerald-500/10 blur-2xl" />
               <motion.img
                 style={{ y: imageY }}
-                src="/builtintegrity.jpg"
+                src="/builtintegrity.jpeg"
                 alt="Latitude Constructions project"
                 className="relative w-full rounded-3xl border border-emerald-500/20 object-cover shadow-[0_20px_60px_rgba(16,185,129,0.15)]"
               />

@@ -232,7 +232,7 @@ export default function Hero() {
                             className="relative rounded-2xl sm:rounded-[28px] overflow-hidden border border-white/[0.07]"
                         >
                             <img
-                                src="/brickhome.jpg"
+                                src="/brickhome.jpeg"
                                 alt="Eco Luxury Villa"
                                 className="h-[360px] sm:h-[460px] lg:h-[520px] w-full object-cover"
                                 style={{ transform: "scale(1.03)" }}

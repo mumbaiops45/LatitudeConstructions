@@ -14,26 +14,26 @@ const stats = [
 
 const projects = [
 
-  { img: '/shika.jpg', category: 'Farmhouse', status: 'ONGOING', title: 'Shika Farmhouse', location: 'Bangalore Region', desc: 'Eco-friendly farmhouse with natural aesthetics' },
-  { img: '/Eco-friendly.jpg', category: 'Farmhouse', status: 'ONGOING', title: 'Lakshmi Farmhouse', location: 'Hosur Region', desc: 'Eco-friendly farmhouse, Hosur Region' },
-  { img: '/Redbrick.jpg', category: 'Farmhouse', status: 'ONGOING', title: 'Modern Build', location: 'Jawalagiri', desc: 'Red brick modern farmhouse, Jawalagiri' },
-  { img: '/Multi-unit.jpg', category: 'Farmhouse', status: 'ONGOING', title: 'Mr. Nityanandam', location: 'Jawalagiri', desc: 'Multi-unit farmhouse, Jawalagiri' },
-  { img: '/Modernfarmhouse.jpg', category: 'Farmhouse', status: 'ONGOING', title: 'Mr. Om Band', location: 'Santhanapalli, Denkanikottai', desc: 'Modern farmhouse, Santhanapalli' },
+  { img: '/shika.jpeg', category: 'Farmhouse', status: 'ONGOING', title: 'Shika Farmhouse', location: 'Bangalore Region', desc: 'Eco-friendly farmhouse with natural aesthetics' },
+  { img: '/Eco-friendly.jpeg', category: 'Farmhouse', status: 'ONGOING', title: 'Lakshmi Farmhouse', location: 'Hosur Region', desc: 'Eco-friendly farmhouse, Hosur Region' },
+  { img: '/Redbrick.jpeg', category: 'Farmhouse', status: 'ONGOING', title: 'Modern Build', location: 'Jawalagiri', desc: 'Red brick modern farmhouse, Jawalagiri' },
+  { img: '/Multi-unit.jpeg', category: 'Farmhouse', status: 'ONGOING', title: 'Mr. Nityanandam', location: 'Jawalagiri', desc: 'Multi-unit farmhouse, Jawalagiri' },
+  { img: '/Modernfarmhouse.jpeg', category: 'Farmhouse', status: 'ONGOING', title: 'Mr. Om Band', location: 'Santhanapalli, Denkanikottai', desc: 'Modern farmhouse, Santhanapalli' },
 
-  { img: '/mathew.jpg', category: 'Farmhouse', status: 'COMPLETED', title: 'Mr. Mathew', location: '', desc: '' },
-  { img: '/Shibu.jpg', category: 'Farmhouse', status: 'COMPLETED', title: 'Mr. Shibu', location: '', desc: '' },
+  { img: '/mathew.jpeg', category: 'Farmhouse', status: 'COMPLETED', title: 'Mr. Mathew', location: '', desc: '' },
+  { img: '/Shibu.jpeg', category: 'Farmhouse', status: 'COMPLETED', title: 'Mr. Shibu', location: '', desc: '' },
   { img: '/srinivas.jpeg', category: 'Farmhouse', status: 'COMPLETED', title: 'Mr. Srinivas', location: '', desc: '' },
-  { img: '/satish.webp', category: 'Farmhouse', status: 'COMPLETED', title: 'Mr. Sathish', location: '', desc: '' },
+  { img: '/satish.jpeg', category: 'Farmhouse', status: 'COMPLETED', title: 'Mr. Sathish', location: '', desc: '' },
 
-  { img: '/Contemporary.jpg', category: 'Residential Villa', status: 'UNDER CONSTRUCTION', title: 'Mr. John Villa', location: 'Onnalvadi, Hosur', desc: 'Contemporary modern villa, Onnalvadi, Hosur' },
-  { img: '/ashok.jpg', category: 'Residential Villa', status: 'COMPLETED', title: 'Mr. Ashok Villa', location: 'Thillai Nagar, Hosur', desc: '' },
+  { img: '/Contemporary.jpeg', category: 'Residential Villa', status: 'UNDER CONSTRUCTION', title: 'Mr. John Villa', location: 'Onnalvadi, Hosur', desc: 'Contemporary modern villa, Onnalvadi, Hosur' },
+  { img: '/ashok.jpeg', category: 'Residential Villa', status: 'COMPLETED', title: 'Mr. Ashok Villa', location: 'Thillai Nagar, Hosur', desc: '' },
 
-  { img: '/8-acre.jpg', category: 'Layout', status: 'COMPLETED', title: 'RS Avenue', location: 'Hosur, Tamil Nadu', desc: '8-acre premium residential layout' },
-  { img: '/5-acre.jpg', category: 'Layout', status: 'COMPLETED', title: 'MM Enclave', location: 'Devanahalli', desc: '5-acre residential layout development' },
-  { img: '/1-acre.jpg', category: 'Layout', status: 'COMPLETED', title: 'Manaya Villas', location: '', desc: '1-acre premium villa layout' },
+  { img: '/8-acre.jpeg', category: 'Layout', status: 'COMPLETED', title: 'RS Avenue', location: 'Hosur, Tamil Nadu', desc: '8-acre premium residential layout' },
+  { img: '/5-acre.jpeg', category: 'Layout', status: 'COMPLETED', title: 'MM Enclave', location: 'Devanahalli', desc: '5-acre residential layout development' },
+  { img: '/1-acre.jpeg', category: 'Layout', status: 'COMPLETED', title: 'Manaya Villas', location: '', desc: '1-acre premium villa layout' },
 
-  { img: '/62flats.jpg', category: 'Apartment', status: 'COMPLETED', title: 'SJR Vogue Residences', location: 'Whitefield, Bangalore', desc: '62 flats — flooring, painting, fittings and handover' },
-  { img: '/Multi-unitf.jpg', category: 'Apartment', status: 'COMPLETED', title: 'Mahaveer Apartment', location: 'Kanakpura Road, Bangalore', desc: 'Multi-unit apartment finishing and interior works' },
+  { img: '/62flats.jpeg', category: 'Apartment', status: 'COMPLETED', title: 'SJR Vogue Residences', location: 'Whitefield, Bangalore', desc: '62 flats — flooring, painting, fittings and handover' },
+  // { img: '/Multi-unitf.jpg', category: 'Apartment', status: 'COMPLETED', title: 'Mahaveer Apartment', location: 'Kanakpura Road, Bangalore', desc: 'Multi-unit apartment finishing and interior works' },
 ]
 
 const filters = ['All Projects', 'Farmhouse', 'Residential Villa', 'Layout', 'Apartment']

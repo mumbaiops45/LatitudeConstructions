@@ -1,18 +1,18 @@
 
 export const services = [
-    { icon: '🌿', title: 'Farmhouse Construction', desc: 'Specialised builders in Bangalore, Hosur, Jowlagiri & Denkanikottai. Eco-friendly materials, rainwater harvesting, solar integration and green building practices.' , image: "/formhouse.png"},
-    { icon: '🏛️', title: 'Residential Turnkey', desc: 'Complete home solutions from design to handover — bespoke homes built to your vision with zero compromise. Single point of contact, zero hassle.', image: "/turnkey.webp" },
+    { icon: '🌿', title: 'Farmhouse Construction', desc: 'Specialised builders in Bangalore, Hosur, Jowlagiri & Denkanikottai. Eco-friendly materials, rainwater harvesting, solar integration and green building practices.' , image: "/formhouse.jpg"},
+    { icon: '🏛️', title: 'Residential Turnkey', desc: 'Complete home solutions from design to handover — bespoke homes built to your vision with zero compromise. Single point of contact, zero hassle.', image: "/turnkey.jpeg" },
     { icon: '🏗️', title: 'Commercial Projects', desc: 'Modern, efficient commercial spaces designed around brand identity, functionality, and energy optimization. Offices, retail, warehouses.' , image: "/CommercialProjects.webp" },
     { icon: '🛋️', title: 'Interior Design', desc: 'Custom interiors with smart space utilization and eco-conscious materials. Aesthetics with sustainability. 3D visualization before execution.' , image: "/architects-interior.webp"},
     { icon: '🔨', title: 'Renovation & Remodeling', desc: 'Modernizing existing structures with minimal disruption, waste reduction focus, and maximum value addition. Kitchen, bathroom, full-home renovation.' , image: "/Renovation.webp" },
-    { icon: '📐', title: 'Layout Development', desc: 'Planned residential communities with smart infrastructure, amenities, and utilities. RS Avenue (8 acres), MM Enclave (5 acres) and more.' , image: "/layoutdevelopment.webp"},
+    { icon: '📐', title: 'Layout Development', desc: 'Planned residential communities with smart infrastructure, amenities, and utilities. RS Avenue (8 acres), MM Enclave (5 acres) and more.' , image: "/layoutdevelopment.jpeg"},
 ]
 
 
 export const projects = [
-    { img: '/villa.jpg', tag: 'Residential Villa', title: 'Mr. John Villa', loc: 'Onnalvadi, Hosur — Contemporary Modern Villa' },
-    { img: '/villa1.jpg', tag: 'Farmhouse', title: 'Shika Farmhouse', loc: 'Bangalore Region — Eco-Friendly Farmhouse' },
-    { img: '/villa2.jpg', tag: 'Farmhouse', title: 'Deva Vishwakarma', loc: 'Jawalagiri — Red Brick Modern Farmhouse' },
+    { img: '/john.jpeg', tag: 'Residential Villa', title: 'Mr. John Villa', loc: 'Onnalvadi, Hosur — Contemporary Modern Villa' },
+    { img: '/shika.jpeg', tag: 'Farmhouse', title: 'Shika Farmhouse', loc: 'Bangalore Region — Eco-Friendly Farmhouse' },
+    { img: '/Vishranth.jpeg', tag: 'Farmhouse', title: 'Mr. Vishranth', loc: 'Jawalagiri — Red Brick Modern Farmhouse' },
 ]
 
 export const whyUs = [
